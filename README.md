@@ -3,7 +3,8 @@
 
 1. Clone the repository
 2. Download and install Vagrant https://www.vagrantup.com/downloads.html. Even if you already have it, download the latest version otherwise adding the Homestead box will fail.
-3. Run the command vagrant box add laravel/homestead
+3. Download VirtualBox
+4. Run the command vagrant box add laravel/homestead - choose "virtualbox" when installing
 4. Download and install Composer if you don't already have it https://getcomposer.org/download/
 5. Download and install NodeJS https://nodejs.org/en/
 
