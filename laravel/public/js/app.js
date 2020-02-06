@@ -6655,6 +6655,25 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/sass/helpers.scss":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./resources/sass/helpers.scss ***!
+  \************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".text-primary {\n  color: #F7E800 !important;\n}\n\n.text-primary-variant {\n  color: #E3D93F !important;\n}\n\n.text-secondary {\n  color: #3D6654 !important;\n}\n\n.text-secondary-variant {\n  color: #A0BF5C !important;\n}\n\n.text-primary-accent {\n  color: #0D273C !important;\n}\n\n.text-secondary-accent {\n  color: #FF623D !important;\n}\n\n.bg-primary {\n  background: #F7E800 !important;\n}\n\n.bg-primary-variant {\n  background: #E3D93F !important;\n}\n\n.bg-secondary {\n  background: #3D6654 !important;\n}\n\n.bg-secondary-variant {\n  background: #A0BF5C !important;\n}\n\n.bg-primary-accent {\n  background: #0D273C !important;\n}\n\n.bg-secondary-accent {\n  background: #FF623D !important;\n}\n\n.btn-primary {\n  background: #F7E800 !important;\n  border-color: #F7E800 !important;\n}\n\n.btn-primary-variant {\n  background: #E3D93F !important;\n  border-color: #E3D93F !important;\n}\n\n.btn-secondary {\n  background: #3D6654 !important;\n  border-color: #3D6654 !important;\n}\n\n.btn-secondary-variant {\n  background: #A0BF5C !important;\n  border-color: #A0BF5C !important;\n}\n\n.btn-primary-accent {\n  background: #0D273C !important;\n  border-color: #0D273C !important;\n}\n\n.btn-secondary-accent {\n  background: #FF623D !important;\n  border-color: #FF623D !important;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/bootstrap/dist/css/bootstrap.min.css":
 /*!*******************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
@@ -74122,6 +74141,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var _sass_helpers_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../sass/helpers.scss */ "./resources/sass/helpers.scss");
+/* harmony import */ var _sass_helpers_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sass_helpers_scss__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -74139,6 +74160,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -74177,7 +74199,9 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "API Response Success: ", this.state.apiSuccess, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], null, "React Bootstrap Works!"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "API Response Success: ", this.state.apiSuccess, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        className: "btn btn-primary"
+      }, "React Bootstrap Works!"));
     }
   }]);
 
@@ -74196,6 +74220,36 @@ function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/helpers.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/helpers.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!../../node_modules/postcss-loader/src??ref--7-2!../../node_modules/sass-loader/dist/cjs.js??ref--7-3!./helpers.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/sass/helpers.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 

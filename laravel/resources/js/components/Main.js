@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import '../../sass/helpers.scss';
 
 export default class Main extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ export default class Main extends Component {
             <div>
                 API Response Success: { this.state.apiSuccess }
                 <br />
-                <Button>React Bootstrap Works!</Button>
+                <Button className="btn btn-primary">React Bootstrap Works!</Button>
             </div>
         );
     }
