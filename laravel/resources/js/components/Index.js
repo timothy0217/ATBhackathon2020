@@ -1,14 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
-import Main from './Main';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import Main from './Home/Main';
+import RegistrationPage from './RegistrationPage/RegistrationPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Index extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Route component={Main} />
+                <Switch>
+                    <Route exact path='/' component={Main} />
+                    <Route path='/registerPage/' component={RegistrationPage} />
+
+                    <Redirect to='/' />
+                </Switch>
             </BrowserRouter>
         );
     }
