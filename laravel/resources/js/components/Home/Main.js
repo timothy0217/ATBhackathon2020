@@ -1,8 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import '../../sass/helpers.scss';
+import '../../../sass/helpers.scss';
+import '../../../sass/Main.scss';
+import  '../../../images/APP.png';
+import  '../../../images/SAVING_TOGETHER.png';
+import  '../../../images/TARGET.png';
+
+import Slider from 'infinite-react-carousel';
+
+
 
 export default class Main extends Component {
     constructor(props) {
@@ -22,13 +30,32 @@ export default class Main extends Component {
     }
 
     render() {
+        const settings = {
+            arrows: false,
+            arrowsBlock: false,
+            duration: 13,
+            dots: true,
+            pauseOnHover: false,
+        };
+
         return (
             <div>
-                API Response Success: { this.state.apiSuccess }
-                <br/>
-                <br/>
-               <Link to="/registerPage/" className="btn btn-primary"><Button>React Bootstrap Works!</Button></Link>
+                <Slider {...settings}>
+                    <div>
+                        <img className="imageSize" src='../../../../images/APP.png' alt="picture" />
+                    </div>
+                    <div>
+                        <img className="imageSize" src='../../../../images/TARGET.png' alt="picture" />
+                    </div>
+                    <div>
+                        <img className="imageSize" src='../../../../images/SAVING_TOGETHER.png' alt="picture" />
+                        <Link to="/registerPage/" className="btn btn-primary rightAlign">
+                                <Button><p className="text-black">Get Started</p></Button>
+                        </Link>                    
+                    </div>
+                </Slider>
             </div>
+
         );
     }
 }
