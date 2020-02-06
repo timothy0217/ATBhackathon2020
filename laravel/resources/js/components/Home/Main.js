@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import '../../sass/helpers.scss';
 
 export default class Main extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ export default class Main extends Component {
                 API Response Success: { this.state.apiSuccess }
                 <br/>
                 <br/>
-               <Link to="/registerPage/"><Button>React Bootstrap Works!</Button></Link>
+               <Link to="/registerPage/" className="btn btn-primary"><Button>React Bootstrap Works!</Button></Link>
             </div>
         );
     }
