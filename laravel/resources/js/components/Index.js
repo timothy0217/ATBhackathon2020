@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Main from './Home/Main';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
 import PassionPage from './Passions/passions';
@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class Index extends Component {
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <Switch>
                     <Route exact path='/' component={ Main } />
                     <Route path='/registerPage/' component={ RegistrationPage } />
@@ -18,7 +18,7 @@ class Index extends Component {
                     <Route path='/resultsPage/' component={ ResultsPage }/>
                     <Redirect to='/' />
                 </Switch>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

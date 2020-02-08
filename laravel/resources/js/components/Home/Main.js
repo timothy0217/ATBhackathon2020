@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import '../../../sass/helpers.scss';
 import '../../../sass/Main.scss';
 import  '../../../images/APP.png';
 import  '../../../images/SAVING_TOGETHER.png';
 import  '../../../images/TARGET.png';
-
 import Slider from 'infinite-react-carousel';
-
-
 
 export default class Main extends Component {
     constructor(props) {
@@ -51,7 +48,7 @@ export default class Main extends Component {
                         <img className="imageSize" src='../../../../images/SAVING_TOGETHER.png' alt="picture" />
                         <Link to="/registerPage/" className="btn btn-primary rightAlign">
                                 <Button><p className="text-black">Get Started</p></Button>
-                        </Link>                    
+                        </Link>
                     </div>
                 </Slider>
             </div>
