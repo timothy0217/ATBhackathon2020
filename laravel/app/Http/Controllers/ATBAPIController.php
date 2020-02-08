@@ -21,7 +21,8 @@ class ATBAPIController extends Controller
         $token = session()->get('key');
 
 //        $getAllAccounts = $ATBAPI->getAccount($token);
-        $test=$ATBAPI->getTransactionsForAccount($token,'2524118357262-9cd580f9-1eb');
+//        dd($getAllAccounts);
+        $test=$ATBAPI->getTransactionsForAccount($token,'5090653314707-bf0da491-ccd');
         dd($test);
 
 

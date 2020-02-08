@@ -177,8 +177,6 @@ dd($json);
     public function getTransactionsForAccount($token,$accountID){ // process credit card using new card
         $apiDirectory = "/obp/v4.0.0/my/banks/". $this->_bankID ."/accounts/".$accountID."/transactions";
         $apiFullAddress = $this->_baseAPI . $apiDirectory;
-//dd($apiFullAddress);
-
         // API call using guzzle
         try
         {
