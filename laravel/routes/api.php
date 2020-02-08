@@ -23,13 +23,23 @@ Route::get('/test/{someData}', function(Request $request, string $someData) {
         'someData' => $someData,
     ]);
 });
-Route::get('/test2', function(Request $request, string $someData) {
-    return json_encode([
-        'success' => 'True',
-        'someData' => $someData,
-    ]);
 
-});
+
+Route::get('/customer/{id}', array(
+    'uses' => 'ATBAPIController@getCustomer'));
+
+
+Route::get('/score/{id}', array(
+    'uses' => 'ATBAPIController@getSustainabilityScore'
+));
+
+
+//Route::post('/score', array(
+//    'uses' => 'ATBAPIController@updateSustainabilyScore'
+//));
+
+
+
 
 Route::get('/ATBAPI', array(
     'uses' => 'ATBAPIController@fetchAPI'));

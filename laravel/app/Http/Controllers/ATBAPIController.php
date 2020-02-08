@@ -28,6 +28,23 @@ class ATBAPIController extends Controller
         return view('ATBAPI');
     }
 
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @param $id
+     *
+     * @return  string json
+     */
+    public function getCustomer(Request $request, $id)
+    {
+    }
 
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @param $id
+     *
+     * @return string json
+     */
+    public function getSustainabilityScore(Request $request, $id){
 
+    }
 }
