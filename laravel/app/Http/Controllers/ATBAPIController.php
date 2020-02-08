@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
 use Illuminate\Http\Request;
 use App\Http\Service\ATBAPI;
+use App\Http\Service\CategorizationService;
+
 
 
 class ATBAPIController extends Controller
@@ -46,6 +48,8 @@ class ATBAPIController extends Controller
      * @return string json
      */
     public function getSustainabilityScore(Request $request, $id){
+        $cat = new CategorizationService();
+        dd($cat->categorize('test'));
 
     }
 }
