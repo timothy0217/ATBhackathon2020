@@ -39,15 +39,17 @@ export default class Main extends Component {
             <div>
                 <Slider {...settings}>
                     <div>
-                        <img className="imageSize" src='../../../../images/APP.png' alt="picture" />
+                        <img className="firstImage" src='../../../../images/APP.png' alt="picture" />
                     </div>
                     <div>
-                        <img className="imageSize" src='../../../../images/TARGET.png' alt="picture" />
+                        <img className="secondImage" src='../../../../images/TARGET.png' alt="picture" />
                     </div>
                     <div>
-                        <img className="imageSize" src='../../../../images/SAVING_TOGETHER.png' alt="picture" />
+                        <img className="thirdImage" src='../../../../images/SAVING_TOGETHER.png' alt="picture" />
+                    </div>
+                    <div>
                         <Link to="/registerPage/" className="btn btn-primary rightAlign">
-                                <Button><p className="text-black">Get Started</p></Button>
+                            <Button className="nextBtn"><p className="text-black pBtn">Get Started</p></Button>
                         </Link>
                     </div>
                 </Slider>
