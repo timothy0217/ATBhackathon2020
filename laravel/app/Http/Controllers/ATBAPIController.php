@@ -19,9 +19,7 @@ class ATBAPIController extends Controller
         $token = $login['token'];
         session()->put('key',$token);
         $token = session()->get('key');
-
-
-        $test = $ATBAPI->getBank($token);
+        $test=$ATBAPI->createCustomers($token);
         dd($test);
 
 
