@@ -172,4 +172,35 @@ dd($json);
     }
 
 
+
+
+    public function getTransactionsForAccount($token,$accountID){ // process credit card using new card
+        $apiDirectory = "/obp/v4.0.0/my/banks/". $this->_bankID ."/accounts/".$accountID."/transactions";
+        $apiFullAddress = $this->_baseAPI . $apiDirectory;
+//dd($apiFullAddress);
+
+        // API call using guzzle
+        try
+        {
+            $client = new Client(['headers' => ['Authorization' =>'DirectLogin token="'.$token.'"']]);
+            // use post to send data to Helcim api end point.
+            $result = $client->request('GET',$apiFullAddress)->getBody()->getContents();
+
+        }
+        catch (RequestException $e)
+        { //show error
+            dd($e);
+        }
+        // return xml
+        $json = json_decode($result,TRUE);
+        dd($json);
+        // convert to json
+        // decode json to array
+        return $json;
+    }
+
+
+
+
+
 }
