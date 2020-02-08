@@ -29,7 +29,7 @@ Route::get('/customer/{id}', array(
     'uses' => 'ATBAPIController@getCustomer'));
 
 
-Route::get('/score/{id}', array(
+Route::get('/customer/{id}/score', array(
     'uses' => 'ATBAPIController@getSustainabilityScore'
 ));
 
