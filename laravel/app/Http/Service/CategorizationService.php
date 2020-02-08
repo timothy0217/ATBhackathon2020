@@ -21,14 +21,15 @@ class CategorizationService
         $this->client = new Client([
             'headers' => [
                 'Content-Type' => 'application/json',
-                'Authorization' =>'Bearer '. $this->token,
+                'Authorization' => 'Bearer '.$this->token,
                 'Accept' => 'application/json',
             ],
             'base_uri' => $this->base_uri,
         ]);
 
-        $authClient = new Client(['base_uri'=> 'https://auth.nordigen.com/oauth/token']);
-        $token = $authClient->request('POST','oauth/token', [
+        $authClient = new Client(['base_uri' => 'https://auth.nordigen.com']);
+        $token = $authClient->request('POST', 'oauth/token'
+        [
             'grant_type' => 'client_credentials',
 'client_id' =>'RvmBObrYyw2l9F7l17nsn1XXzQAgLQdE',
 'client_secret' => 'yGePqmG81FFe6z6_M_kfNj2KP2rV2MA455swhhxCeZXKylOGCHko56lCnWHwS7vs',
@@ -52,14 +53,14 @@ class CategorizationService
             'base_uri' => $this->base_uri,
         ]);
 
+        $response = $client->GET('/v2/category-tree/UK', []);
 
-        $response = $client->GET('/v2/category-tree/UK', [
-        ]);
-
-        return $response->getBody()->getContents();
+        return $response->getBody()
+            ->getContents();
     }
 
-    public function categorize($transactions){
+    public function categorize($transactions)
+    {
 
         $file = Storage::disk()
             ->get('example.json');
@@ -91,9 +92,6 @@ class CategorizationService
 //
 //        "data":{"attributes":{"categorisation":{"accounts":[{"account_number":"GB29IBAN20160604201923","bank":"Some Bank","country":"uk","currencies":[{"code":"GBP","credit_turnover":1100.8,"debit_turnover":366.4,"end_balance":2750.86,"start_balance":2016.46,"transactions":[{"amount":-15.45,"category_id":84,"date":"2019-08-01","info":"PURCHASE 201620190406111 15.45GBP","partner":"Local Groceries","transaction_id":"arbritary-unique-id1"},{"amount":900.8,"category_id":85,"date":"2019-08-05","info":"SALARY 201620190406222 900.80GBP","partner":"Job Ltd","transaction_id":"arbritary-unique-id2"},{"amount":200.0,"category_id":23,"date":"2019-08-07","info":"ROYALTIES 201620190406333 200.00GBP","partner":"Freelance Agency Ltd","transaction_id":"arbritary-unique-id3"},{"amount":-50.45,"category_id":44,"date":"2019-08-11","info":"PURCHASE 201620190406444 50.45GBP","partner":"Gas Station","transaction_id":"arbritary-unique-id4"},{"amount":-300.5,"category_id":97,"date":"2019-08-15","info":"MORTGAGE PAYMENT, AGREEMENT A201664 300.50GBP","partner":"Loan Bank","transaction_id":"arbritary-unique-id5"}]}],"holders":[{"name":"Alex Watson"}],"is_joint_ownership":false,"is_shared_ownership":false,"period_end":"2019-08-15","period_start":"2019-08-01"}],"category_tree_version":"uk_202001311420"},"status":"completed"},"type":"report processing status"}}
 
-
-        $response = $this->client->POST('/v2/report', ['multipart'=>['input'=> $file]]);
-
-
+        $response = $this->client->POST('/v2/report', ['multipart' => ['input' => $file]]);
     }
 }
