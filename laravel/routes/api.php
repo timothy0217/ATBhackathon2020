@@ -23,3 +23,14 @@ Route::get('/test/{someData}', function(Request $request, string $someData) {
         'someData' => $someData,
     ]);
 });
+Route::get('/test2', function(Request $request, string $someData) {
+    return json_encode([
+        'success' => 'True',
+        'someData' => $someData,
+    ]);
+
+});
+
+Route::get('/ATBAPI', array(
+    'uses' => 'ATBAPIController@fetchAPI'));
+
