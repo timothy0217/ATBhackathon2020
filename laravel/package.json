@@ -31,10 +31,7 @@
         "chart.js": "^2.9.3",
         "clsx": "^1.1.0",
         "infinite-react-carousel": "^1.2.9",
-        "nivo": "^0.31.0",
         "react-chartjs-2": "^2.9.0",
-        "react-charts": "^2.0.0-beta.6",
-        "react-google-charts": "^3.0.15",
         "react-router": "^5.1.2",
         "recharts": "^2.0.0-beta.1"
     }
