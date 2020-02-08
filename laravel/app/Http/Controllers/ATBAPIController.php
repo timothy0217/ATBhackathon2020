@@ -21,7 +21,7 @@ class ATBAPIController extends Controller
         $token = session()->get('key');
 
 
-        $test = $ATBAPI->createUser($token);
+        $test = $ATBAPI->getBank($token);
         dd($test);
 
 
