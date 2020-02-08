@@ -138,7 +138,7 @@ dd($json);
 
 
 
-    public function createCustomers($token){
+    public function getCustomers($token){
 
         $apiDirectory = "/obp/v4.0.0/banks/". $this->_bankID ."/customers";
         $apiFullAddress = $this->_baseAPI . $apiDirectory;
@@ -154,7 +154,7 @@ dd($json);
         // API call using guzzle
         try
         {
-            $client = new Client();
+            $client = new Client(['headers' => ['Authorization' =>'DirectLogin token="'.$token.'"']]);
             // use post to send data to Helcim api end point.
             $result = $client->request('GET',$apiFullAddress,$body)->getBody()->getContents();
 
