@@ -12,9 +12,9 @@ class ATBAPI
     private  $_userName = "bb3c98c6a7e3f34a6a9b140"; //Helcim Commerce API - URL Location
     private  $_password = "dc08d4b3f3f4b3K+"; //Helcim Commerce API - URL Location
     private  $_consumer_key = "89c7a0d1727b47a1ac18b65fd4a96ae6"; //Helcim Commerce API - URL Location
-    private  $_bankID = "bb3c98c6a7e3f34a6a9b1405e8a8d74"; //Helcim Commerce API - URL Location
+    private  $_bankID = "bb3c98c6a7e3f34a6a9b140607543ce"; //Helcim Commerce API - URL Location
 
-    public function login(){ // process credit card using new card
+    public function login(){
 
         $apiDirectory = "/my/logins/direct";
         $apiFullAddress = $this->_baseAPI . $apiDirectory;
@@ -40,17 +40,14 @@ class ATBAPI
         return $json;
     }
 
-    public function getBank($token){ // process credit card using new card
-        $apiDirectory = "/obp/v4.0.0/banks/".$this->_bankID;
+
+
+
+
+    public function getAccount($token){ // process credit card using new card
+        $apiDirectory = "/obp/v4.0.0/banks/". $this->_bankID ."/accounts";
         $apiFullAddress = $this->_baseAPI . $apiDirectory;
-//
-//        $body = array(
-//            "username"=> 'DirectLogin',
-//            "password"=>"bb3c98c6a7e3f34a6a9b140",
-//            "first_name"=>"dc08d4b3f3f4b3K+",
-//            "last_name"=>"dc08d4b3f3f4b3K+",
-//            "email"=>"dc08d4b3f3f4b3K+",
-//        );
+
 
         // API call using guzzle
         try
@@ -73,25 +70,22 @@ dd($json);
     }
 
 
-    public function createUser($token){ // process credit card using new card
 
-        $apiDirectory = "/obp/v4.0.0/users";
+
+
+
+
+    public function getAllCustomers($token){
+        $apiDirectory = "/obp/v4.0.0/banks/". $this->_bankID ."/customers";
         $apiFullAddress = $this->_baseAPI . $apiDirectory;
 
-        $body = array(
-            "username"=> 'DirectLogin',
-            "password"=>"bb3c98c6a7e3f34a6a9b140",
-            "first_name"=>"dc08d4b3f3f4b3K+",
-            "last_name"=>"dc08d4b3f3f4b3K+",
-            "email"=>"dc08d4b3f3f4b3K+",
-        );
 
         // API call using guzzle
         try
         {
-            $client = new Client();
+            $client = new Client(['headers' => ['Authorization' =>'DirectLogin token="'.$token.'"']]);
             // use post to send data to Helcim api end point.
-            $result = $client->request('POST',$apiFullAddress,$body)->getBody()->getContents();
+            $result = $client->request('GET',$apiFullAddress)->getBody()->getContents();
 
         }
         catch (RequestException $e)
@@ -107,6 +101,75 @@ dd($json);
     }
 
 
+
+
+
+
+
+    public function checkAvailableFunds($accountID){
+
+        $apiDirectory = "/obp/v4.0.0/banks/". $this->_bankID ."/accounts/".$accountID."/VIEW_ID/funds-available";
+        $apiFullAddress = $this->_baseAPI . $apiDirectory;
+
+        $body = array(
+            "amount"=> '0',
+            "currency"=>"CAD"
+        );
+
+        // API call using guzzle
+        try
+        {
+            $client = new Client();
+            // use post to send data to Helcim api end point.
+            $result = $client->request('GET',$apiFullAddress,$body)->getBody()->getContents();
+
+        }
+        catch (RequestException $e)
+        { //show error
+            dd($e);
+        }
+        // return xml
+        $json = json_decode($result,TRUE);
+        dd($json);
+        // convert to json
+        // decode json to array
+        return $json;
+    }
+
+
+
+    public function getCustomers($token){
+
+        $apiDirectory = "/obp/v4.0.0/banks/". $this->_bankID ."/customers";
+        $apiFullAddress = $this->_baseAPI . $apiDirectory;
+
+        $body = array(
+            "legal_name"=> 'Screaming Lemon',
+            "mobile_phone_number"=>"4039293949",
+            "email"=> 'timomthy0217000@gmail.com',
+            "date_of_birth"=>"2017-09-19T00:00:00Z",
+            "relationship_status"=> 'single'
+        );
+
+        // API call using guzzle
+        try
+        {
+            $client = new Client(['headers' => ['Authorization' =>'DirectLogin token="'.$token.'"']]);
+            // use post to send data to Helcim api end point.
+            $result = $client->request('GET',$apiFullAddress,$body)->getBody()->getContents();
+
+        }
+        catch (RequestException $e)
+        { //show error
+            dd($e);
+        }
+        // return xml
+        $json = json_decode($result,TRUE);
+        dd($json);
+        // convert to json
+        // decode json to array
+        return $json;
+    }
 
 
 }
