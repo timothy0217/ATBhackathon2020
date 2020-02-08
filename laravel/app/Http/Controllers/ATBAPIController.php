@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
+use Illuminate\Http\Request;
 use App\Http\Service\ATBAPI;
 
 
@@ -16,10 +17,17 @@ class ATBAPIController extends Controller
         $ATBAPI = new ATBAPI();
         $login = $ATBAPI->login();
         $token = $login['token'];
-        dd($token);
+        session()->put('key',$token);
+        $token = session()->get('key');
 
-        $request->session()->put('key', 'value');
+
+        $test = $ATBAPI->createUser($token);
+        dd($test);
+
 
         return view('ATBAPI');
     }
+
+
+
 }
