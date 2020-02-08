@@ -6667,7 +6667,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".imageSize {\n  width: 100%;\n  height: 80%;\n}\n\n.pageMargin {\n  margin: 2%;\n}\n\n.carousel-initialized .carousel-track {\n  height: 70% !important;\n  width: 100% !important;\n}\n\n.centerPadding {\n  padding-left: 50%;\n}\n\n.rightAlign {\n  text-align: center;\n  float: right;\n}", ""]);
+exports.push([module.i, ".firstImage {\n  padding-left: 18%;\n  width: 78%;\n  height: 50%;\n}\n\n.secondImage {\n  padding-left: 12%;\n  margin-bottom: 1%;\n  width: 92%;\n  height: 50%;\n}\n\n.thirdImage {\n  padding-left: 13%;\n  width: 91%;\n  height: 50%;\n}\n\n.nextBtn {\n  height: 50%;\n}\n\n.pBtn {\n  margin-bottom: 0rem;\n}\n\n.pageMargin {\n  margin: 2%;\n}\n\n.carousel-initialized .carousel-track {\n  height: 70% !important;\n  width: 100% !important;\n}\n\n.centerPadding {\n  padding-left: 50%;\n}\n\n.rightAlign {\n  text-align: center;\n  float: right;\n}", ""]);
 
 // exports
 
@@ -81859,7 +81859,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/APP.png?642084bc144a713d83d02daa304bd70b";
+module.exports = "/images/APP.png?3b245807a7cd57c34b96850a8b2a33f1";
 
 /***/ }),
 
@@ -81870,7 +81870,7 @@ module.exports = "/images/APP.png?642084bc144a713d83d02daa304bd70b";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/SAVING_TOGETHER.png?d2ddd2afb1f3c0714d7caf18abad2d45";
+module.exports = "/images/SAVING_TOGETHER.png?f62ab4ef057fddb6aceb8bd48cfadf18";
 
 /***/ }),
 
@@ -81881,7 +81881,7 @@ module.exports = "/images/SAVING_TOGETHER.png?d2ddd2afb1f3c0714d7caf18abad2d45";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/TARGET.png?6513f9b5aed047af1120ced576228840";
+module.exports = "/images/TARGET.png?5ce3b7946e68af2a6b7a6324b86a5d15";
 
 /***/ }),
 
@@ -82052,22 +82052,24 @@ function (_Component) {
         pauseOnHover: false
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(infinite_react_carousel__WEBPACK_IMPORTED_MODULE_9___default.a, settings, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imageSize",
+        className: "firstImage",
         src: "../../../../images/APP.png",
         alt: "picture"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imageSize",
+        className: "secondImage",
         src: "../../../../images/TARGET.png",
         alt: "picture"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imageSize",
+        className: "thirdImage",
         src: "../../../../images/SAVING_TOGETHER.png",
         alt: "picture"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/registerPage/",
         className: "btn btn-primary rightAlign"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "text-black"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        className: "nextBtn"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "text-black pBtn"
       }, "Get Started"))))));
     }
   }]);
