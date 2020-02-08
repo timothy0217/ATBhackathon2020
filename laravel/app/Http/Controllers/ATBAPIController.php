@@ -10,10 +10,15 @@ use App\Http\Service\ATBAPI;
 
 class ATBAPIController extends Controller
 {
-    public function fetchAPI()
+    public function fetchAPI(Request $request)
     {
 
         $ATBAPI = new ATBAPI();
+        $login = $ATBAPI->login();
+        $token = $login['token'];
+        dd($token);
+
+        $request->session()->put('key', 'value');
 
         return view('ATBAPI');
     }
