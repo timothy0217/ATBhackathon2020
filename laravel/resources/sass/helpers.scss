@@ -1,0 +1,83 @@
+@import 'variables';
+
+.text-black{
+    color: $black !important;
+}
+
+.text-primary {
+    color: $primary !important;
+}
+
+.text-primary-variant {
+    color: $primary-variant !important;
+}
+
+.text-secondary {
+    color: $secondary !important;
+}
+
+.text-secondary-variant {
+    color: $secondary-variant !important;
+}
+
+.text-primary-accent {
+    color: $primary-accent !important;
+}
+
+.text-secondary-accent {
+    color: $secondary-accent !important;
+}
+
+.bg-primary {
+    background: $primary !important;
+}
+
+.bg-primary-variant {
+    background: $primary-variant !important;
+}
+
+.bg-secondary {
+    background: $secondary !important;
+}
+
+.bg-secondary-variant {
+    background: $secondary-variant !important;
+}
+
+.bg-primary-accent {
+    background: $primary-accent !important;
+}
+
+.bg-secondary-accent {
+    background: $secondary-accent !important;
+}
+
+.btn-primary {
+    background: $primary !important;
+    border-color: $primary !important;
+}
+
+.btn-primary-variant {
+    background: $primary-variant !important;
+    border-color: $primary-variant !important;
+}
+
+.btn-secondary {
+    background: $secondary !important;
+    border-color: $secondary !important;
+}
+
+.btn-secondary-variant {
+    background: $secondary-variant !important;
+    border-color: $secondary-variant !important;
+}
+
+.btn-primary-accent {
+    background: $primary-accent !important;
+    border-color: $primary-accent !important;
+}
+
+.btn-secondary-accent {
+    background: $secondary-accent !important;
+    border-color: $secondary-accent !important;
+}

@@ -1,0 +1,42 @@
+.firstImage {
+    padding-left: 18%;
+    width: 78%;
+    height: 50%;
+}
+.secondImage {
+    padding-left: 12%;
+    margin-bottom: 1%;
+    width: 92%;
+    height: 50%;
+}
+.thirdImage{
+    padding-left: 13%;
+    width: 91%;
+    height: 50%;
+}
+
+.nextBtn{
+    height: 50%;
+}
+.pBtn{
+    margin-bottom: 0rem;
+}
+
+.pageMargin{
+    margin: 2%;
+}
+.carousel-initialized{
+    .carousel-track{
+        height: 70% !important;
+        width: 100% !important;
+    }
+}
+.centerPadding{
+    // padding-top: 50%;
+    padding-left: 50%;
+}
+
+.rightAlign{
+    text-align: center;
+    float: right;
+}
