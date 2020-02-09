@@ -4,10 +4,11 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home/Home';
 import Main from './Home/Main';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
-import PassionPage from './Passions/passions';
 import ResultsPage from './Results/results';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../sass/app.scss';
+import LoadingToResult from "./Results/LoadingToResult";
+import Login from './Login/Login';
 
 class Index extends Component {
     render() {
@@ -15,10 +16,11 @@ class Index extends Component {
             <HashRouter>
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/setup' component={Main} />
+                    <Route exact path='/main' component={Main} />
                     <Route path='/registerPage/' component={RegistrationPage} />
-                    <Route path='/passionPage/' component={PassionPage} />
+                    <Route path='/loadingToResult/' component={LoadingToResult} />
                     <Route path='/resultsPage/' component={ResultsPage} />
+                    <Route path='/loginPage/' component={Login} />
                     <Redirect to='/' />
                 </Switch>
             </HashRouter>

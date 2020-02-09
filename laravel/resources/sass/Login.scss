@@ -1,0 +1,52 @@
+body {
+    background-image: url('../images/Home.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.topContainer{
+    width: 100vw;
+    margin-bottom: 3.5%;
+}
+
+.homeImg{
+    height: 5%;
+    width: 8%;
+    margin: 4%;
+}
+
+.submitLogin {
+    width: 60%;
+    border-radius: 100px !important;
+    padding: 10px 25px !important;
+
+    &:hover {
+        color: black !important;
+    }
+}
+
+// Input container
+.MuiInputBase-root {
+    background: white !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+    // Select container
+.MuiSelect-root {
+    text-align: left !important;
+}
+
+.boxContainer {
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 2%;
+    background-color: #FFF79C;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.form-container {
+    width: 80%;
+    margin-left: 10%;
+}
