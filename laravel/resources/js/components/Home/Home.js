@@ -27,12 +27,15 @@ export default class Home extends Component {
 
         return (
             <div class="homebckground">
-                <div><img class="homeImg" src="../../../images/Word_Mark.png"></img></div>
+                <div class="topContainer"><img class="homeImg" src="../../../images/Word_Mark.png"></img>
+                    <Link to="/main/"><h5 class="aboutUs">About Us</h5></Link>
+                </div>
                 <div><img class="lemonLogo" src="../../../images/LOGO.png"></img></div>
-                <div class="titleContainer"><h1 class="homeText">Make good money.</h1></div>
-                <div>
-                    <Button>Sign In</Button>
-                    <Button>Register</Button>
+                <div class="titleContainer"><h1 class="homeText">Make your green greener</h1></div>
+                <div class="textUnderTitle"><p class="firstline"> Form sustainable spending habits with Limón</p></div>
+                <div class="btnContainer">
+                    <Link to="/registerPage/"><Button id="homeBtn" className="btn btn-primary">Sign Up</Button></Link>
+                    <Button id="homeBtn" className="btn btn-primary">Log In</Button>
                 </div>
             </div>
 
