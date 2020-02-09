@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
-import {Container, Typography, TextField, Button, Grid, Select, MenuItem} from '@material-ui/core';
+import {
+    Container,
+    Typography,
+    TextField,
+    Button,
+    Grid,
+    Select,
+    MenuItem,
+} from '@material-ui/core';
 import '../../../sass/RegistrationPage.scss';
 
 export default class RegistrationPage extends Component {
@@ -20,7 +28,7 @@ export default class RegistrationPage extends Component {
     }
 
     updateFormState(event) {
-        const obj  = {};
+        const obj = {};
         obj[event.target.id] = event.target.value;
         this.setState(obj);
     }
@@ -41,62 +49,61 @@ export default class RegistrationPage extends Component {
 
     render() {
         return (
-            <Container>
-                <div className="form-container">
-                    <Typography variant="h4">
-                        Let's get to know each other
-                    </Typography>
-                    <br /><br />
+            <div className="form-container">
+                <Typography variant="h4">
+                    Let's get to know each other
+                </Typography>
+                <br/><br/>
 
-                    <form noValidate autoComplete="off">
-                        <Grid container spacing={3}>
-                            <Grid item xs={12} md={6}>
-                                <TextField id="first_name" label="First Name" variant="filled" fullWidth
-                                           onChange={this.updateFormState.bind(this)} />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField id="last_name" label="Last Name" variant="filled" fullWidth
-                                           onChange={this.updateFormState.bind(this)}/>
-                            </Grid>
+                <form noValidate autoComplete="off" className="form-inner">
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} md={6}>
+                            <TextField id="first_name" label="First Name" variant="filled" fullWidth
+                                       onChange={this.updateFormState.bind(this)}/>
                         </Grid>
-                        <TextField id="email" label="Email" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <Grid container spacing={3}>
-                            <Grid item xs={12} md={8}>
-                                <TextField id="street_address" label="Street Address" variant="filled" fullWidth
-                                           onChange={this.updateFormState.bind(this)}/>
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                                <TextField id="unit_number" label="Unit Number" variant="filled" fullWidth
-                                           onChange={this.updateFormState.bind(this)}/>
-                            </Grid>
+                        <Grid item xs={12} md={6}>
+                            <TextField id="last_name" label="Last Name" variant="filled" fullWidth
+                                       onChange={this.updateFormState.bind(this)}/>
                         </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12} md={4}>
-                                <TextField id="city" label="City" variant="filled" fullWidth
-                                           onChange={this.updateFormState.bind(this)}/>
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                                <Select id="province" label="Province" variant="filled" fullWidth value="AB">
-                                    <MenuItem value="AB" className="select-option">Alberta</MenuItem>
-                                </Select>
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                                <Select id="country" label="Country" variant="filled" fullWidth value="CA">
-                                    <MenuItem value="CA" className="select-option">Canada</MenuItem>
-                                </Select>
-                            </Grid>
+                    </Grid>
+                    <TextField id="email" label="Email" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} md={8}>
+                            <TextField id="street_address" label="Street Address" variant="filled" fullWidth
+                                       onChange={this.updateFormState.bind(this)}/>
                         </Grid>
+                        <Grid item xs={12} md={4}>
+                            <TextField id="unit_number" label="Unit Number" variant="filled" fullWidth
+                                       onChange={this.updateFormState.bind(this)}/>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} md={4}>
+                            <TextField id="city" label="City" variant="filled" fullWidth
+                                       onChange={this.updateFormState.bind(this)}/>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Select id="province" label="Province" variant="filled" fullWidth value="AB">
+                                <MenuItem value="AB" className="select-option">Alberta</MenuItem>
+                            </Select>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Select id="country" label="Country" variant="filled" fullWidth value="CA">
+                                <MenuItem value="CA" className="select-option">Canada</MenuItem>
+                            </Select>
+                        </Grid>
+                    </Grid>
 
-                        <center>
-                            <Button className="btn btn-primary submit" disableElevation onClick={() => this.handleFormSubmit()}>
-                                Submit
-                            </Button>
-                        </center>
-                    </form>
-                </div>
-            </Container>
+                    <center>
+                        <Button className="btn btn-primary submit" disableElevation
+                                onClick={() => this.handleFormSubmit()}>
+                            Submit
+                        </Button>
+                    </center>
+                </form>
+            </div>
         );
     }
 }

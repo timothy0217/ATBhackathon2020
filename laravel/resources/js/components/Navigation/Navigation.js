@@ -18,6 +18,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from "react-router-dom";
+import '../../../sass/Navigation.scss';
 
 const drawerWidth = 300;
 

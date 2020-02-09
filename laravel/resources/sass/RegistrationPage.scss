@@ -1,47 +1,48 @@
 @import 'variables';
 
-body {
+.form-container {
+    width: 100% !important;
+    height: 100vh !important;
     background: $primary-variant !important;
-}
+    text-align: center !important;
+    padding: 100px 0 !important;
 
-h4 {
-    margin-top: 100px !important;
-}
-
-.MuiContainer-root {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .form-container {
-        width: 60% !important;
-        text-align: center !important;
+    .form-inner {
+        width: 50% !important;
+        margin: 0 auto !important;
     }
-}
 
-// Form container
-.MuiFormControl-root {
-    margin-bottom: 30px !important;
-}
+    .MuiContainer-root {
+        background: $primary-variant !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-// Input container
-.MuiInputBase-root {
-    background: $white !important;
-    border-radius: 0 !important;
-    border: none !important;
-}
+    // Form container
+    .MuiFormControl-root {
+        margin-bottom: 30px !important;
+    }
 
-// Select container
-.MuiSelect-root {
-    text-align: left !important;
-}
+    // Input container
+    .MuiInputBase-root {
+        background: $white !important;
+        border-radius: 0 !important;
+        border: none !important;
+    }
 
-.submit {
-    width: 35%;
-    border-radius: 100px !important;
-    padding: 10px 25px !important;
+    // Select container
+    .MuiSelect-root {
+        text-align: left !important;
+    }
 
-    &:hover {
-        color: $black !important;
+    .submit {
+        width: 35%;
+        border-radius: 100px !important;
+        padding: 10px 25px !important;
+
+        &:hover {
+            color: $black !important;
+        }
     }
 }
