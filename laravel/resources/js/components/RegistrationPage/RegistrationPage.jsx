@@ -9,6 +9,7 @@ import {
     MenuItem,
 } from '@material-ui/core';
 import '../../../sass/RegistrationPage.scss';
+import Login from '../../Classes/Login';
 
 export default class RegistrationPage extends Component {
     constructor(props) {

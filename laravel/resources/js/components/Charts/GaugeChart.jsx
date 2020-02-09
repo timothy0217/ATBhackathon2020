@@ -11,9 +11,10 @@ export default class LimonGaugeChart extends Component {
     componentDidMount() {
         const api = new LimonAPI();
         const data = api.getFakeCarbonData();
-        console.log('data', data);
+        const sustainabilityScore = data.sustainability_score;
+        const percent = parseFloat(sustainabilityScore) / 1000;
 
-        this.setState({ percent: api.getSustainabilityPercentage() });
+        this.setState({ percent: percent.toFixed(2) });
     }
 
     render() {

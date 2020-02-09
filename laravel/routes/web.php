@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('index');
 });
+
+
+
+// tim test
+Route::any('/ATBAPI', array(
+    'uses' => 'ATBAPIController@fetchAPI'));
+
