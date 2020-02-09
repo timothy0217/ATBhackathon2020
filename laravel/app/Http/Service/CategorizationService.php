@@ -82,22 +82,17 @@ class CategorizationService
         $attributes = collect($data->data->attributes);
         $job_id = $attributes->get('request-id');
 
-        $command = "   curl -X PUT  https://api.nordigen.com/v2/report/process/".$job_id. " -H 'Authorization: Bearer " . $this->token. "' -H 'Content-Type: application/json'  -d '{\"operations\": [\"categorisation\"],   \"country\": \"uk\"}'";
+        $this->assignJobParameters($job_id);
 
-        $output = shell_exec($command);
-
-        $response = $this->client->request('get', 'v2/report/'.$job_id);
-
-
-        \Storage::disk()->put('/public/downloads/statement-'.$account_id.'.json', $response->getBody()
-            ->getContents());
+        $this->storeCategorization($account_id, $job_id);
 
         return $account_id;
 
     }
 
-    public function getCategorization($account_id){
 
+
+    public function getCategorizationFromFile($account_id){
 
         try {
             $categorization = \Storage::disk()
@@ -106,5 +101,33 @@ class CategorizationService
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    /**
+     * @param $job_id
+     */
+    private function assignJobParameters($job_id): void
+    {
+        // this low key the worst thing I've ever done;
+        $command = "   curl -X PUT  https://api.nordigen.com/v2/report/process/".$job_id." -H 'Authorization: Bearer ".$this->token."' -H 'Content-Type: application/json'  -d '{\"operations\": [\"categorisation\"],   \"country\": \"uk\"}'";
+        $output = shell_exec($command);
+
+        json_decode($output);
+
+
+    }
+
+    /**
+     * @param $account_id
+     * @param $job_id
+     *
+     */
+    private function storeCategorization($account_id, $job_id): void
+    {
+        $response = $this->client->request('get', 'v2/report/'.$job_id);
+
+        \Storage::disk()
+            ->put('/public/downloads/statement-'.$account_id.'.json', $response->getBody()
+                ->getContents());
     }
 }

@@ -24,21 +24,19 @@ Route::get('/test/{someData}', function(Request $request, string $someData) {
     ]);
 });
 
-
-Route::get('/customer/{id}', array(
-    'uses' => 'ATBAPIController@getCustomer'));
-
-
-Route::get('/customer/{id}/score', array(
-    'uses' => 'ATBAPIController@getSustainabilityScore'
+Route::get('accounts', array(
+    'uses'=> 'ATBAPIController@getAccounts'
 ));
 
 
-//Route::post('/score', array(
-//    'uses' => 'ATBAPIController@updateSustainabilyScore'
+//Route::get('/accounts/{id}', array(
+//    'uses' => 'ATBAPIController@getAccount'
 //));
 
 
+Route::get('/accounts/{id}/score', array(
+    'uses' => 'ATBAPIController@getSustainabilityScore'
+));
 
 
 Route::get('/ATBAPI', array(
