@@ -23,11 +23,16 @@ class ATBAPIController extends Controller
 
 // fetch all accounts and it's ID
         $getAllAccounts = $ATBAPI->getAccount($token);
-        $getAccountID =$getAllAccounts[20]['id']; // Change the number to choose between accounts
+        $getAccountID =$getAllAccounts[20]['id']; // Change the number to choose between accounts;
         $getTransactions = $ATBAPI->getTransactionsForAccount($token,$getAccountID);
         $getTransactions = json_encode($getTransactions,true);
         $accountID= $getAccountID;
         $fileName = $accountID.'.json';
+
+//Get Account Info
+        $accountName = $getAllAccounts[20]['label'];
+        $accountFullInfo = $this->getCustomer($token,$accountID);
+        $accountBalance = $accountFullInfo['balance']['amount'];
 
 //  Save Json as file to storage
         Storage::put('public/upload/' . $fileName, $getTransactions);
@@ -93,7 +98,7 @@ class ATBAPIController extends Controller
         $accountListArray['period_end'] = $endDate;
 
         // push account_list data as an object under account_list array
-        $accountListObject = (object)$accountListArray;dd($accountListObject);
+        $accountListObject = (object)$accountListArray;
         $newJson = array('account_list'=>[]);
         array_push($newJson['account_list'],$accountListObject);
         $newJson = json_encode($newJson);
@@ -112,8 +117,11 @@ class ATBAPIController extends Controller
      *
      * @return  string json
      */
-    public function getCustomer(Request $request, $id)
+    public function getCustomer($token,$accountID)
     {
+        $ATBAPI = new ATBAPI();
+        $getAccountInfo = $ATBAPI->getAccountByID($token,$accountID);
+        return $getAccountInfo;
     }
 
     /**
