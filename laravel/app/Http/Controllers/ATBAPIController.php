@@ -396,7 +396,7 @@ class ATBAPIController extends Controller
             $result = [
                 'value_total' => $value_total,
                 'carbon_total' => $carbon_total,
-                'sustainability_score' => 1000 - ( $carbon_total/2.5),
+                'sustainability_score' => 1000 - ( $carbon_total/3.5),
                 'categories' => $stats,
             ];
 
