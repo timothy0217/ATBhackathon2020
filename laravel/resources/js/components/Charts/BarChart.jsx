@@ -16,7 +16,7 @@ export default class BarChart extends Component {
                 labels: api.getBarChartLabels(),
                 datasets: [
                     {
-                        label: 'Dollar Value',
+                        label: 'Carbon',
                         backgroundColor: '#00C853',
                         borderColor: '#00C853',
                         borderWidth: 1,

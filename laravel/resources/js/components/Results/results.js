@@ -85,7 +85,7 @@ export default function ResultsPage() {
 
                     <center>
                         <Typography variant="h4">
-                            Total Spent
+                            Total Carbon
                         </Typography>
                     </center>
                     <br/>

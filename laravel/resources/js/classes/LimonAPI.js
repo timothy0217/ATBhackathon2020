@@ -92,7 +92,7 @@ export default class LimonAPI {
         const data = [];
 
         categoriesArray.forEach(category => {
-            data.push(category.value);
+            data.push(category.carbon);
         });
 
         return data;
