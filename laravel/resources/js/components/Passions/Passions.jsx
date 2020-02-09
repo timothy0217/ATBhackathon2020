@@ -30,8 +30,6 @@ export default class Passions extends Component {
         localStorage.setItem('passion_four', this.state.passion_four);
         localStorage.setItem('passion_five', this.state.passion_five);
 
-        console.log('local storage', Object.entries(localStorage));
-
         // Redirect to next page
         this.props.history.push('/contributionsPage');
     }
