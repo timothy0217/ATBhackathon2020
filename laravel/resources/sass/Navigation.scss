@@ -1,0 +1,57 @@
+@import 'variables';
+
+// Navigation bar top
+.MuiAppBar-root {
+    color: $black !important;
+    background: #fafafa !important;
+    box-shadow: none !important;
+}
+
+.limon-logo {
+    width: 80px;
+    height: 26px;
+}
+
+.hamburger-icon {
+    color: $greyscale !important;
+    height: 35px !important;
+    width: 35px !important;
+}
+
+// Side nav (drawer)
+.MuiDrawer-paper {
+    background: $primary !important;
+
+    .drawer-logo {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .drawer-close {
+        color: $greyscale !important;
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    // Menu item
+    .MuiListItem-button {
+        margin-top: 15px !important;
+    }
+
+    // Icon to left of link
+    .MuiListItemIcon-root .MuiSvgIcon-root {
+        color: $black !important;
+    }
+
+    a {
+        color: $black !important;
+        font-family: 'Times New Roman', serif !important;
+
+        // Link text
+        .MuiTypography-root {
+            font-family: serif !important;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+    }
+}

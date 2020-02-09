@@ -17,7 +17,7 @@ export default class Passions extends Component {
     }
 
     updateFormState(event) {
-        const obj  = {};
+        const obj = {};
         obj[event.target.id] = event.target.value;
         this.setState(obj);
     }
@@ -38,38 +38,37 @@ export default class Passions extends Component {
 
     render() {
         return (
-            <Container>
-                <div className="form-container">
-                    <Typography variant="h4">
-                        Just a few more details...
-                    </Typography>
-                    <br /><br />
+            <div className="form-container">
+                <Typography variant="h4">
+                    Just a few more details...
+                </Typography>
+                <br/><br/>
 
-                    <form noValidate autoComplete="off">
-                        <TextField id="passion_one" label="Passion 1" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <TextField id="passion_two" label="Passion 2" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <TextField id="passion_three" label="Passion 3" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <TextField id="passion_four" label="Passion 4" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <TextField id="passion_five" label="Passion 5" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
+                <form noValidate autoComplete="off" className="form-inner">
+                    <TextField id="passion_one" label="Passion 1" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <TextField id="passion_two" label="Passion 2" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <TextField id="passion_three" label="Passion 3" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <TextField id="passion_four" label="Passion 4" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <TextField id="passion_five" label="Passion 5" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
 
-                        <center>
-                            <Button className="btn btn-primary submit" disableElevation onClick={() => this.handleFormSubmit()}>
-                                Submit
-                            </Button>
-                        </center>
-                    </form>
-                </div>
-            </Container>
+                    <center>
+                        <Button className="btn btn-primary submit" disableElevation
+                                onClick={() => this.handleFormSubmit()}>
+                            Submit
+                        </Button>
+                    </center>
+                </form>
+            </div>
         );
     }
 }
