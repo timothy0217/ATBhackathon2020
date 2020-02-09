@@ -35,11 +35,11 @@ class ATBAPIController extends Controller
 
         $this->emails = collect([
             [
-                'email' => 'martha@hotmail.com',
+                'email' => 'matthew@routeique.com', // TRANSIT
                 'account_id' => '942525966868-5e1328f8-85c',
             ],
             [
-                'email' => 'matthew@routeique.com',
+                'email' => 'martha@hotmail.com', // BMW
                 'account_id' => '9043177494179-a30c474d-ced',
             ],
         ]);
@@ -355,7 +355,8 @@ class ATBAPIController extends Controller
                 46 => [
                     'id' => 46,
                     'title' => 'Vehicle purchase, maintenance',
-                    'carbon_multiplier' => 4.999,
+                    'carbon_multiplier' => false,
+                    'carbon_static' => 59.99
                 ],
                 //	Vehicle purchase, maintenance
                 55 => [
@@ -377,7 +378,12 @@ class ATBAPIController extends Controller
 
                 $cat_transactions = $transactions->where('category_id', $id);
                 $value = $cat_transactions->sum('amount');
-                $carbon = -1 * $value * $category['carbon_multiplier'];
+
+                if($category['carbon_multiplier']) {
+                    $carbon = -1 * $value * $category['carbon_multiplier'];
+                } else {
+                    $carbon = $category['carbon_static'];
+                }
                 $value_total += $value;
                 $carbon_total += $carbon;
 
@@ -390,7 +396,7 @@ class ATBAPIController extends Controller
             $result = [
                 'value_total' => $value_total,
                 'carbon_total' => $carbon_total,
-                'sustainability_score' => mt_rand(200, 700),
+                'sustainability_score' => 1000 - ( $carbon_total/2.5),
                 'categories' => $stats,
             ];
 
