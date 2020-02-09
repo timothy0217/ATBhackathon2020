@@ -380,7 +380,7 @@ class ATBAPIController extends Controller
                 $value = $cat_transactions->sum('amount');
 
                 if($category['carbon_multiplier']) {
-                    $carbon = -1 * $value * $category['carbon_multiplier'];
+                    $carbon = $value * $category['carbon_multiplier'];
                 } else {
                     $carbon = $category['carbon_static'];
                 }
