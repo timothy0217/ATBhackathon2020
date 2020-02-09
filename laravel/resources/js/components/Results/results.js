@@ -33,7 +33,13 @@ export default function ResultsPage() {
     const classes = useStyles();
 
     const scoreResult = JSON.parse(localStorage.getItem('score_result'));
-    console.log('local storage', scoreResult.sustainability_score);
+    console.log('scoreResult', scoreResult);
+
+    let sustainabilityScoreNew = 0;
+
+    if(scoreResult !== null) {
+        sustainabilityScoreNew = scoreResult.sustainability_score;
+    }
 
     return (
         <React.Fragment>
@@ -60,7 +66,7 @@ export default function ResultsPage() {
                         <br />
                         <b>
                         <Typography variant="h1">
-                            {scoreResult.sustainability_score}
+                            {parseInt(scoreResult.sustainability_score)}
                         </Typography>
                         </b>
                     </center>
