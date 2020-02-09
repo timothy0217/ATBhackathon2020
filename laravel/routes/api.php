@@ -24,6 +24,11 @@ Route::get('/test/{someData}', function(Request $request, string $someData) {
     ]);
 });
 
+
+Route::post('login', array(
+    'uses' => 'ATBAPIController@login'
+));
+
 Route::get('accounts', array(
     'uses'=> 'ATBAPIController@getAccounts'
 ));
