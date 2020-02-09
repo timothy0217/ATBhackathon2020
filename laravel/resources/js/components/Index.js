@@ -5,8 +5,8 @@ import Home from './Home/Home';
 import Main from './Home/Main';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
 import ResultsPage from './Results/results';
-import LoadingToResult from './Results/LoadingToResults';
-// import Login from './Login/Login';
+import LoadingToResult from './RegistrationPage/LoadingToResult';
+import Login from './Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../sass/app.scss';
 import Contributions from "./Contributions/Contributions";
@@ -22,7 +22,7 @@ class Index extends Component {
                     <Route path='/resultsPage/' component={ResultsPage} />
                     <Route path='/contributionsPage/' component={Contributions} />
                     <Route path='/loadingToResult/' component={LoadingToResult} />
-                    {/* <Route path='/loginPage/' component={Login} /> */}
+                    <Route path='/loginPage/' component={Login} />
                     <Redirect to='/' />
                 </Switch>
             </HashRouter>

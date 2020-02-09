@@ -35,7 +35,7 @@ export default class Home extends Component {
                 <div class="textUnderTitle"><p class="firstline"> Form sustainable spending habits with Limón</p></div>
                 <div class="btnContainer">
                     <Link to="/registerPage/"><Button id="homeBtn" className="btn btn-primary">Sign Up</Button></Link>
-                    <Button id="homeBtn" className="btn btn-primary">Log In</Button>
+                    <Link to="/loginPage/"><Button id="homeBtn" className="btn btn-primary">Log In</Button></Link>
                 </div>
             </div>
 

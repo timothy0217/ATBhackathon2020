@@ -45,7 +45,7 @@ export default class RegistrationPage extends Component {
         localStorage.setItem('country', this.state.country);
 
         // Redirect to next page
-        this.props.history.push('/contributionsPage');
+        this.props.history.push('/loadingToResult');
     }
 
     render() {
