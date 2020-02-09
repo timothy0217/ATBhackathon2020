@@ -50,7 +50,68 @@ class ATBAPIController extends Controller
         $getAllAccounts =  $this->atb->getAccounts($this->token);
         $getAccountID =$getAllAccounts[2]['id']; // Change the number to choose between accounts
 
-        return $this->createCategorizationUploadFile($getAccountID);
+        $getTransactions = $this->atb->getTransactionsForAccount($this->token, $getAccountID);
+        $getTransactions = json_encode($getTransactions, true);
+        $accountID = $getAccountID;
+        $fileName = $accountID.'.json';
+
+//  Save Json as file to storage
+        Storage::put('public/upload/'.$fileName, $getTransactions);
+
+//  Read json file from storage
+        $path = storage_path().'/app/public/upload/'.$fileName;
+        $oldJason = json_decode(file_get_contents($path), true);
+
+// Nordigen Formating
+        $accountListArray = [
+            'account_nr' => $accountID,
+            'holder_name' => 'first_name last_name',
+            'holder_id' => $accountID,
+            'bank_name' => 'screaming lemon',
+            'currency' => 'CAD',
+            'start_balance' => 500000,
+            'end_balance' => 400000,
+            'debit_turnover' => 101000,
+            'credit_turnover' => 1000,
+            'period_start' => '2020-01-01',
+            'period_end' => '2020-01-01',
+            'transaction_list' => []
+        ];
+
+        // Transaction from ATB Finance
+        $transactions = $oldJason['transactions'];
+        // Unique transaction ID
+        $transactionID = 0;
+
+        foreach ($transactions as $transaction) {
+            // Unique transaction ID
+            $transactionID = $transactionID + 1;
+            $date = $transaction['details']['posted'];
+
+            $transactionListArray = [
+                'date' => substr($date, 0, 10),
+                'partner' => $transaction['details']['type'],
+                'info' => $transaction['details']['description'].' '.str_replace($date, 'T', '').' CAD',
+                'transaction_id' => 'arbritary-unique-id'.$transactionID,
+                'sum' => (float) $transaction['details']['value']['amount']
+            ];
+
+            // push transaction_list data as an object under  transaction_list array
+            $transactionListObject = (object) $transactionListArray;
+            array_push($accountListArray['transaction_list'], $transactionListObject);
+        }
+
+        // push account_list data as an object under account_list array
+        $accountListObject = (object) $accountListArray;
+        $newJson = ['account_list' => []];
+        array_push($newJson['account_list'], $accountListObject);
+        $newJson = json_encode($newJson);
+//Nordigen json format --->  $newJason
+
+        Storage::disk()
+            ->put('public/upload/transactions-'.$accountID.'.json', $newJson);
+
+        return $accountID;
 
         return view('ATBAPI');
     }
