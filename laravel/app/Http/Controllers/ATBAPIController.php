@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Service\CategorizationService;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
 use Illuminate\Http\Request;
 use App\Http\Service\ATBAPI;
-use App\Http\Service\CategorizationService;
+
 
 
 
@@ -22,10 +23,21 @@ class ATBAPIController extends Controller
         session()->put('key',$token);
         $token = session()->get('key');
 
-//        $getAllAccounts = $ATBAPI->getAccount($token);
-//        dd($getAllAccounts);
-        $test=$ATBAPI->getTransactionsForAccount($token,'5090653314707-bf0da491-ccd');
-        dd($test);
+     //$getAllAccounts = $ATBAPI->getAccount($token);
+     //dd($getAllAccounts);
+        $test=$ATBAPI->getTransactionsForAccount($token,'2524119902112-a6b71584-74f');
+
+
+
+        $types = [];
+
+        foreach($test['transactions'] as $t){
+
+            $type = $t['details']['type'];
+            array_push($types, $type);
+        }
+
+        return $types;
 
 
         return view('ATBAPI');
@@ -50,6 +62,12 @@ class ATBAPIController extends Controller
     public function getSustainabilityScore(Request $request, $id){
         $cat = new CategorizationService();
         dd($cat->categorize('test'));
+
+        $cat = new CategorizationService();
+
+        dd($cat->categorize('test'));
+
+
 
     }
 }
