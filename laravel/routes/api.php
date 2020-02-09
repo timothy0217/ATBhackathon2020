@@ -23,3 +23,27 @@ Route::get('/test/{someData}', function(Request $request, string $someData) {
         'someData' => $someData,
     ]);
 });
+
+
+Route::post('login', array(
+    'uses' => 'ATBAPIController@login'
+));
+
+Route::get('accounts', array(
+    'uses'=> 'ATBAPIController@getAccounts'
+));
+
+
+Route::get('/accounts/{id}/transactions', array(
+    'uses' => 'ATBAPIController@getAccount'
+));
+
+
+Route::get('/accounts/{id}/score', array(
+    'uses' => 'ATBAPIController@getSustainabilityScore'
+));
+
+
+Route::get('/ATBAPI', array(
+    'uses' => 'ATBAPIController@fetchAPI'));
+

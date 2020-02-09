@@ -1,0 +1,433 @@
+{
+  "data": {
+    "attributes": {
+      "categorisation": {
+        "accounts": [
+          {
+            "account_number": "942525966868-5e1328f8-85c",
+            "bank": "screaming lemon",
+            "country": "uk",
+            "currencies": [
+              {
+                "code": "CAD",
+                "credit_turnover": 1000,
+                "debit_turnover": 101000,
+                "end_balance": 400000,
+                "start_balance": 500000,
+                "transactions": [
+                  {
+                    "amount": -15176.93,
+                    "category_id": 76,
+                    "date": "2020-02-08",
+                    "info": "Transfer Investment Debit  CAD",
+                    "partner": "INVESTMENTS",
+                    "transaction_id": "arbritary-unique-id1"
+                  },
+                  {
+                    "amount": -15324.17,
+                    "category_id": 76,
+                    "date": "2020-02-08",
+                    "info": "Transfer Investment Debit  CAD",
+                    "partner": "INVESTMENTS",
+                    "transaction_id": "arbritary-unique-id2"
+                  },
+                  {
+                    "amount": 57390.32,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Incoming Wire  CAD",
+                    "partner": "TRANSFER",
+                    "transaction_id": "arbritary-unique-id3"
+                  },
+                  {
+                    "amount": 58706.03,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Incoming Wire  CAD",
+                    "partner": "TRANSFER",
+                    "transaction_id": "arbritary-unique-id4"
+                  },
+                  {
+                    "amount": -0.01,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id5"
+                  },
+                  {
+                    "amount": -0.01,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id6"
+                  },
+                  {
+                    "amount": -20.03,
+                    "category_id": 80,
+                    "date": "2020-02-08",
+                    "info": "Fee Close Account  CAD",
+                    "partner": "FEES_CHARGES",
+                    "transaction_id": "arbritary-unique-id7"
+                  },
+                  {
+                    "amount": -20.97,
+                    "category_id": 80,
+                    "date": "2020-02-08",
+                    "info": "Fee Close Account  CAD",
+                    "partner": "FEES_CHARGES",
+                    "transaction_id": "arbritary-unique-id8"
+                  },
+                  {
+                    "amount": -0.03,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id9"
+                  },
+                  {
+                    "amount": -0.03,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id10"
+                  },
+                  {
+                    "amount": -0.04,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id11"
+                  },
+                  {
+                    "amount": -0.04,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id12"
+                  },
+                  {
+                    "amount": -0.04,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id13"
+                  },
+                  {
+                    "amount": -0.04,
+                    "category_id": 657,
+                    "date": "2020-02-08",
+                    "info": "Overdraft Interest  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id14"
+                  },
+                  {
+                    "amount": -2.31,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Fee Service  CAD",
+                    "partner": "Fees",
+                    "transaction_id": "arbritary-unique-id15"
+                  },
+                  {
+                    "amount": -2.37,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Fee Service  CAD",
+                    "partner": "Fees",
+                    "transaction_id": "arbritary-unique-id16"
+                  },
+                  {
+                    "amount": 69.82,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Debit Transaction  CAD",
+                    "partner": "Shell Premium Fuel",
+                    "transaction_id": "arbritary-unique-id17"
+                  },
+                  {
+                    "amount": 488.3,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Debit Card Transaction  CAD",
+                    "partner": "Shell Premium Fuel",
+                    "transaction_id": "arbritary-unique-id18"
+                  },
+                  {
+                    "amount": -30520.63,
+                    "category_id": 76,
+                    "date": "2020-02-08",
+                    "info": "Transfer Investment Debit  CAD",
+                    "partner": "TRANSFER",
+                    "transaction_id": "arbritary-unique-id19"
+                  },
+                  {
+                    "amount": -31444.16,
+                    "category_id": 77,
+                    "date": "2020-02-08",
+                    "info": "Transfer  CAD",
+                    "partner": "Transfer from Savings",
+                    "transaction_id": "arbritary-unique-id20"
+                  },
+                  {
+                    "amount": -25.58,
+                    "category_id": 77,
+                    "date": "2020-02-08",
+                    "info": "Transfer  CAD",
+                    "partner": "TR for Savings",
+                    "transaction_id": "arbritary-unique-id21"
+                  },
+                  {
+                    "amount": 308.75,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Interac e-Transfer Received  CAD",
+                    "partner": "RENTAL_INCOME",
+                    "transaction_id": "arbritary-unique-id22"
+                  },
+                  {
+                    "amount": 18.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "Shell Gas Station",
+                    "transaction_id": "arbritary-unique-id23"
+                  },
+                  {
+                    "amount": 307.87,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Interac e-Transfer Received  CAD",
+                    "partner": "RENTAL_INCOME",
+                    "transaction_id": "arbritary-unique-id24"
+                  },
+                  {
+                    "amount": 31.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "Huskey Gas station",
+                    "transaction_id": "arbritary-unique-id25"
+                  },
+                  {
+                    "amount": 95.72,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Interac e-Transfer Received  CAD",
+                    "partner": "RENTAL_INCOME",
+                    "transaction_id": "arbritary-unique-id26"
+                  },
+                  {
+                    "amount": 943.08,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Interac e-Transfer Received  CAD",
+                    "partner": "RENTAL_INCOME",
+                    "transaction_id": "arbritary-unique-id27"
+                  },
+                  {
+                    "amount": 1116.36,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Interac e-Transfer Received  CAD",
+                    "partner": "RENTAL_INCOME",
+                    "transaction_id": "arbritary-unique-id28"
+                  },
+                  {
+                    "amount": 109.92,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "Bust ticket - monthly pass",
+                    "transaction_id": "arbritary-unique-id29"
+                  },
+                  {
+                    "amount": 59059.9,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Incoming Wire  CAD",
+                    "partner": "TRANSFER",
+                    "transaction_id": "arbritary-unique-id30"
+                  },
+                  {
+                    "amount": 60231.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "BMW X3 car purchase",
+                    "transaction_id": "arbritary-unique-id31"
+                  },
+                  {
+                    "amount": 13402.48,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Incoming Wire  CAD",
+                    "partner": "TRANSFER",
+                    "transaction_id": "arbritary-unique-id32"
+                  },
+                  {
+                    "amount": 31.1,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "Costco Fuel Usage",
+                    "transaction_id": "arbritary-unique-id33"
+                  },
+                  {
+                    "amount": 57.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "D  CAD",
+                    "partner": "Water Bill",
+                    "transaction_id": "arbritary-unique-id34"
+                  },
+                  {
+                    "amount": 25976.81,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Incoming Wire  CAD",
+                    "partner": "TRANSFER",
+                    "transaction_id": "arbritary-unique-id35"
+                  },
+                  {
+                    "amount": 351.62,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "POS Return  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id36"
+                  },
+                  {
+                    "amount": 68.11,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "POS Return  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id37"
+                  },
+                  {
+                    "amount": 123.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "Enmax electricity",
+                    "transaction_id": "arbritary-unique-id38"
+                  },
+                  {
+                    "amount": 102.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "Enmax Gas",
+                    "transaction_id": "arbritary-unique-id39"
+                  },
+                  {
+                    "amount": 700.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "etranfer Transfer  CAD",
+                    "partner": "Air Canada Flight - Toronto",
+                    "transaction_id": "arbritary-unique-id40"
+                  },
+                  {
+                    "amount": 81.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Debit payment  CAD",
+                    "partner": "Shell Gas",
+                    "transaction_id": "arbritary-unique-id41"
+                  },
+                  {
+                    "amount": 3.3,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "EFT Transfer  CAD",
+                    "partner": "City Transit",
+                    "transaction_id": "arbritary-unique-id42"
+                  },
+                  {
+                    "amount": 15.28,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "POS Return  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id43"
+                  },
+                    {
+                    "amount": 67.31,
+                    "category_id": 32,
+                    "date": "2020-02-08",
+                    "info": "Electricity Bill CAD",
+                    "partner": "Enmax",
+                    "transaction_id": "arbritary-unique-id44"
+                  },
+                    {
+                    "amount": 92.98,
+                    "category_id": 33,
+                    "date": "2020-02-08",
+                    "info": "Gas Bill  CAD",
+                    "partner": "Enmax",
+                    "transaction_id": "arbritary-unique-id45"
+                  },
+                    {
+                    "amount": 3.21,
+                    "category_id": 42,
+                    "date": "2020-02-08",
+                    "info": "Public Transit CAD",
+                    "partner": "City of Calgary",
+                    "transaction_id": "arbritary-unique-id46"
+                  }
+                    ,
+                    {
+                    "amount": 3.21,
+                    "category_id": 42,
+                    "date": "2020-02-08",
+                    "info": "Public Transit CAD",
+                    "partner": "City of Calgary",
+                    "transaction_id": "arbritary-unique-id47"
+                  }
+                    ,
+                    {
+                    "amount": 3.21,
+                    "category_id": 42,
+                    "date": "2020-02-08",
+                    "info": "Public Transit CAD",
+                    "partner": "City of Calgary",
+                    "transaction_id": "arbritary-unique-id48"
+                  }
+                    ,
+                    {
+                    "amount": 3.21,
+                    "category_id": 42,
+                    "date": "2020-02-08",
+                    "info": "Public Transit CAD",
+                    "partner": "City of Calgary",
+                    "transaction_id": "arbritary-unique-id49"
+                  }
+                ]
+              }
+            ],
+            "holders": [
+              {
+                "name": "first_name last_name"
+              }
+            ],
+            "is_joint_ownership": false,
+            "is_shared_ownership": false,
+            "period_end": "2020-02-08",
+            "period_start": "2020-01-01"
+          }
+        ],
+        "category_tree_version": "uk_202001311420"
+      },
+      "status": "completed"
+    },
+    "type": "report processing status"
+  }
+}

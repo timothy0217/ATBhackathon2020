@@ -1,0 +1,582 @@
+{
+  "data": {
+    "attributes": {
+      "categorisation": {
+        "accounts": [
+          {
+            "account_number": "9043177494179-a30c474d-ced",
+            "bank": "screaming lemon",
+            "country": "uk",
+            "currencies": [
+              {
+                "code": "CAD",
+                "credit_turnover": 1000,
+                "debit_turnover": 101000,
+                "end_balance": 400000,
+                "start_balance": 500000,
+                "transactions": [
+                  {
+                    "amount": -4.05,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id1"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Reusable Plastic bottle",
+                    "transaction_id": "arbritary-unique-id2"
+                  },
+                  {
+                    "amount": -3.95,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id3"
+                  },
+                  {
+                    "amount": -3.98,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id4"
+                  },
+                  {
+                    "amount": -3.98,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id5"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 45,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit",
+                    "transaction_id": "arbritary-unique-id6"
+                  },
+                  {
+                    "amount": -3.98,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id7"
+                  },
+                  {
+                    "amount": -4.07,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id8"
+                  },
+                  {
+                    "amount": -4.05,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id9"
+                  },
+                  {
+                    "amount": -4.04,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id10"
+                  },
+                  {
+                    "amount": -4.08,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id11"
+                  },
+                  {
+                    "amount": 12439.75,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Bill Q",
+                    "transaction_id": "arbritary-unique-id12"
+                  },
+                  {
+                    "amount": 13039.46,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Bill Q",
+                    "transaction_id": "arbritary-unique-id13"
+                  },
+                  {
+                    "amount": 12971.22,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer from Deposit Account  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id14"
+                  },
+                  {
+                    "amount": 12820.62,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer from Deposit Account  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id15"
+                  },
+                  {
+                    "amount": 235.31,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "TPPL payment",
+                    "transaction_id": "arbritary-unique-id16"
+                  },
+                  {
+                    "amount": 237.78,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Debt payment",
+                    "transaction_id": "arbritary-unique-id17"
+                  },
+                  {
+                    "amount": 237.33,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id18"
+                  },
+                  {
+                    "amount": 238.77,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id19"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 45,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit",
+                    "transaction_id": "arbritary-unique-id20"
+                  },
+                  {
+                    "amount": -7.64,
+                    "category_id": 714,
+                    "date": "2020-02-08",
+                    "info": "Fee Bank Draft  CAD",
+                    "partner": "Kid items paid for by Dad",
+                    "transaction_id": "arbritary-unique-id21"
+                  },
+                  {
+                    "amount": -30124.38,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Bank Draft  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id22"
+                  },
+                  {
+                    "amount": -7.61,
+                    "category_id": 714,
+                    "date": "2020-02-08",
+                    "info": "Fee Bank Draft  CAD",
+                    "partner": "Kid items paid for by Dad",
+                    "transaction_id": "arbritary-unique-id23"
+                  },
+                  {
+                    "amount": -30322.96,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Bank Draft  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id24"
+                  },
+                  {
+                    "amount": -13366.1,
+                    "category_id": 76,
+                    "date": "2020-02-08",
+                    "info": "Transfer  CAD",
+                    "partner": "INVESTMENTS",
+                    "transaction_id": "arbritary-unique-id25"
+                  },
+                  {
+                    "amount": -13077.73,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Transfer  CAD",
+                    "partner": "Between Accounts",
+                    "transaction_id": "arbritary-unique-id26"
+                  },
+                  {
+                    "amount": -4.05,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id27"
+                  },
+                  {
+                    "amount": -4.13,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id28"
+                  },
+                  {
+                    "amount": -4.01,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id29"
+                  },
+                  {
+                    "amount": -4.01,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id30"
+                  },
+                  {
+                    "amount": 227.53,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Camper Trailer payment",
+                    "transaction_id": "arbritary-unique-id31"
+                  },
+                  {
+                    "amount": 231.71,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "PERSONAL_CARE",
+                    "transaction_id": "arbritary-unique-id32"
+                  },
+                  {
+                    "amount": 233.12,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id33"
+                  },
+                  {
+                    "amount": 228.66,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id34"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit",
+                    "transaction_id": "arbritary-unique-id35"
+                  },
+                  {
+                    "amount": 228.1,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "ei",
+                    "transaction_id": "arbritary-unique-id36"
+                  },
+                  {
+                    "amount": 230.18,
+                    "category_id": 117,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Loan payments",
+                    "transaction_id": "arbritary-unique-id37"
+                  },
+                  {
+                    "amount": 231.16,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id38"
+                  },
+                  {
+                    "amount": 233.37,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id39"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 45,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit",
+                    "transaction_id": "arbritary-unique-id40"
+                  },
+                  {
+                    "amount": -4.01,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id41"
+                  },
+                  {
+                    "amount": -4.1,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id42"
+                  },
+                  {
+                    "amount": 232.84,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "PERSONAL_CARE",
+                    "transaction_id": "arbritary-unique-id43"
+                  },
+                  {
+                    "amount": 235.42,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id44"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 45,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit",
+                    "transaction_id": "arbritary-unique-id45"
+                  },
+                  {
+                    "amount": -102.21,
+                    "category_id": 97,
+                    "date": "2020-02-08",
+                    "info": "Transfer  CAD",
+                    "partner": "lake mortgage",
+                    "transaction_id": "arbritary-unique-id46"
+                  },
+                  {
+                    "amount": 232.56,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "PERSONAL_CARE",
+                    "transaction_id": "arbritary-unique-id47"
+                  },
+                  {
+                    "amount": 235.92,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id48"
+                  },
+                  {
+                    "amount": -6167.93,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Transfer  CAD",
+                    "partner": "Transfer to Bryana",
+                    "transaction_id": "arbritary-unique-id49"
+                  },
+                  {
+                    "amount": 3.55,
+                    "category_id": 45,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit",
+                    "transaction_id": "arbritary-unique-id50"
+                  },
+                  {
+                    "amount": 232.51,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "PERSONAL_CARE",
+                    "transaction_id": "arbritary-unique-id51"
+                  },
+                  {
+                    "amount": 230.22,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id52"
+                  },
+                  {
+                    "amount": -4.02,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id53"
+                  },
+                  {
+                    "amount": 229.04,
+                    "category_id": 23,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Debt Payment",
+                    "transaction_id": "arbritary-unique-id54"
+                  },
+                  {
+                    "amount": 3.2,
+                    "category_id": 45,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "Public Transit ticket",
+                    "transaction_id": "arbritary-unique-id55"
+                  },
+                  {
+                    "amount": 230.19,
+                    "category_id": 117,
+                    "date": "2020-02-08",
+                    "info": "Installment Payment  CAD",
+                    "partner": "Loan payments",
+                    "transaction_id": "arbritary-unique-id56"
+                  },
+                  {
+                    "amount": 230.58,
+                    "category_id": 359,
+                    "date": "2020-02-08",
+                    "info": "Bank Transfer Direct Debit  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id57"
+                  },
+                  {
+                    "amount": -4.13,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Monthly Maintenance Fees  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id58"
+                  },
+                    {
+                    "amount": 43.13,
+                    "category_id": 44,
+                    "date": "2020-02-08",
+                    "info": "Premium Fuel CAD",
+                    "partner": "Shell Gas Station",
+                    "transaction_id": "arbritary-unique-id59"
+                  },
+                    {
+                    "amount": 242.13,
+                    "category_id": 32,
+                    "date": "2020-02-08",
+                    "info": "Elecricity Bill  CAD",
+                    "partner": "Enmax",
+                    "transaction_id": "arbritary-unique-id60"
+                  },
+                    {
+                    "amount": 120.19,
+                    "category_id": 33,
+                    "date": "2020-02-08",
+                    "info": "Gas Bill  CAD",
+                    "partner": "Enmax",
+                    "transaction_id": "arbritary-unique-id61"
+                  },
+                    {
+                    "amount": 82.31,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Premium Fuel CAD",
+                    "partner": "Costco",
+                    "transaction_id": "arbritary-unique-id62"
+                  },
+                    {
+                    "amount": 60392.32,
+                    "category_id": 46,
+                    "date": "2020-02-08",
+                    "info": "vehicle purchase  CAD",
+                    "partner": "BMW Calgary",
+                    "transaction_id": "arbritary-unique-id63"
+                  },
+                    {
+                    "amount": 19.07,
+                    "category_id": 44,
+                    "date": "2020-02-08",
+                    "info": "Premium Fuel CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id64"
+                  },
+                    {
+                    "amount": 4921.13,
+                    "category_id": 55,
+                    "date": "2020-02-08",
+                    "info": "Mexico All Inclusive  CAD",
+                    "partner": "Air Canada",
+                    "transaction_id": "arbritary-unique-id65"
+                  },
+                    {
+                    "amount": 421.90,
+                    "category_id": 55,
+                    "date": "2020-02-08",
+                    "info": "Calgary to Vancouver  CAD",
+                    "partner": "WestJet",
+                    "transaction_id": "arbritary-unique-id66"
+                  },
+                    {
+                    "amount": 41.89,
+                    "category_id": 84,
+                    "date": "2020-02-08",
+                    "info": "Premium Fuel  CAD",
+                    "partner": "Huskey Gas Station",
+                    "transaction_id": "arbritary-unique-id67"
+                  },
+                    {
+                    "amount": -8.27,
+                    "category_id": 33,
+                    "date": "2020-02-08",
+                    "info": "Gas Readjustmen  CAD",
+                    "partner": "UNCATEGORIZED",
+                    "transaction_id": "arbritary-unique-id68"
+                  }
+                ]
+              }
+            ],
+            "holders": [
+              {
+                "name": "first_name last_name"
+              }
+            ],
+            "is_joint_ownership": false,
+            "is_shared_ownership": false,
+            "period_end": "2020-02-08",
+            "period_start": "2020-01-01"
+          }
+        ],
+        "category_tree_version": "uk_202001311420"
+      },
+      "status": "completed"
+    },
+    "type": "report processing status"
+  }
+}

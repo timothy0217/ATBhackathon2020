@@ -1,0 +1,48 @@
+@import 'variables';
+
+.form-container {
+    width: 100% !important;
+    height: 100vh !important;
+    background: $primary-variant !important;
+    text-align: center !important;
+    padding: 100px 0 !important;
+
+    .form-inner {
+        width: 50% !important;
+        margin: 0 auto !important;
+    }
+
+    .MuiContainer-root {
+        background: $primary-variant !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // Form container
+    .MuiFormControl-root {
+        margin-bottom: 30px !important;
+    }
+
+    // Input container
+    .MuiInputBase-root {
+        background: $white !important;
+        border-radius: 0 !important;
+        border: none !important;
+    }
+
+    // Select container
+    .MuiSelect-root {
+        text-align: left !important;
+    }
+
+    .submit {
+        width: 35%;
+        border-radius: 100px !important;
+        padding: 10px 25px !important;
+
+        &:hover {
+            color: $black !important;
+        }
+    }
+}
