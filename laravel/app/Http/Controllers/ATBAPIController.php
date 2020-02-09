@@ -147,7 +147,6 @@ class ATBAPIController extends Controller
         $accountListObject = (object) $accountListArray;
         $newJson = ['account_list' => []];
         array_push($newJson['account_list'], $accountListObject);
-        $newJson = json_encode($newJson);
 
         return $newJson;
     }
@@ -418,7 +417,7 @@ class ATBAPIController extends Controller
         $newJson = $this->getAccountData($accountID);
         //Nordigen json format --->  $newJason
         Storage::disk()
-            ->put('public/upload/transactions-'.$accountID.'.json', $newJson);
+            ->put('public/upload/transactions-'.$accountID.'.json', json_encode($newJson));
 
         return $newJson;
     }
