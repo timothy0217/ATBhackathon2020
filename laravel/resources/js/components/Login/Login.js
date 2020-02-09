@@ -19,7 +19,7 @@ export default class LoginPage extends Component {
         this.setState(obj);
     }
     handleFormSubmit() {
-        localStorage.setItem('email', this.state.account_id);
+        localStorage.setItem('email', this.state.email);
         localStorage.setItem('password', this.state.password);
         console.log('local storage', Object.entries(localStorage));
         // Redirect to next page
