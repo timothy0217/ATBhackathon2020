@@ -35,7 +35,7 @@ export default class LoginPage extends Component {
                     <div className="container">
                         <div className="loginForm">
                             <Typography variant="h4">
-                                <b>Enter yo limons</b>
+                                <b>Login</b>
                             </Typography>
                             <br /><br />
                                 <form noValidate autoComplete="off">
