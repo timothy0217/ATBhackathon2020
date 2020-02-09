@@ -35,11 +35,11 @@ class ATBAPIController extends Controller
 
         $this->emails = collect([
             [
-                'email' => 'martha@hotmail.com',
+                'email' => 'matthew@routeique.com', // TRANSIT
                 'account_id' => '942525966868-5e1328f8-85c',
             ],
             [
-                'email' => 'matthew@routeique.com',
+                'email' => 'martha@hotmail.com', // BMW
                 'account_id' => '9043177494179-a30c474d-ced',
             ],
         ]);
@@ -392,7 +392,7 @@ class ATBAPIController extends Controller
             $result = [
                 'value_total' => $value_total,
                 'carbon_total' => $carbon_total,
-                'sustainability_score' => mt_rand(200, 700),
+                'sustainability_score' => 1000 - ( $carbon_total/2.5),
                 'categories' => $stats,
             ];
 
