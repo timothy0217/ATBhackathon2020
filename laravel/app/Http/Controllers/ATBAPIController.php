@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Storage;
  */
 class ATBAPIController extends Controller
 {
-
     protected $token;
+
     protected $atb;
 
     /**
@@ -25,35 +25,38 @@ class ATBAPIController extends Controller
     {
         $this->atb = $ATBAPI;
 
-        if(session()->has('key')){
+        if (session()->has('key')) {
             $token = session()->get('key');
         } else {
             $this->authenticate();
         }
-
     }
 
-    public function authenticate(){
+    public function authenticate()
+    {
 
-        $login =  $this->atb->login();
+        $login = $this->atb->login();
         $token = $login['token'];
         $this->token = $token;
 
         session()->put('key', $token);
-
     }
-
 
     public function fetchAPI(Request $request)
     {
 // fetch all accounts and it's ID
-        $getAllAccounts =  $this->atb->getAccounts($this->token);
-        $getAccountID =$getAllAccounts[2]['id']; // Change the number to choose between accounts
 
-        $getTransactions = $this->atb->getTransactionsForAccount($this->token, $getAccountID);
+        $getAllAccounts = $ATBAPI->getAccount($token);
+        $getAccountID = $getAllAccounts[20]['id']; // Change the number to choose between accounts;
+        $getTransactions = $ATBAPI->getTransactionsForAccount($token, $getAccountID);
         $getTransactions = json_encode($getTransactions, true);
         $accountID = $getAccountID;
         $fileName = $accountID.'.json';
+
+//Get Account Info
+        $accountName = $getAllAccounts[20]['label'];
+        $accountFullInfo = $this->getCustomer($token, $accountID);
+        $accountBalance = $accountFullInfo['balance']['amount'];
 
 //  Save Json as file to storage
         Storage::put('public/upload/'.$fileName, $getTransactions);
@@ -63,9 +66,10 @@ class ATBAPIController extends Controller
         $oldJason = json_decode(file_get_contents($path), true);
 
 // Nordigen Formating
+
         $accountListArray = [
             'account_nr' => $accountID,
-            'holder_name' => 'first_name last_name',
+            'holder_name' => 'Mike Allan',
             'holder_id' => $accountID,
             'bank_name' => 'screaming lemon',
             'currency' => 'CAD',
@@ -73,39 +77,54 @@ class ATBAPIController extends Controller
             'end_balance' => 400000,
             'debit_turnover' => 101000,
             'credit_turnover' => 1000,
-            'period_start' => '2020-01-01',
-            'period_end' => '2020-01-01',
-            'transaction_list' => []
+            'period_start' => '',
+            'period_end' => '',
+            'transaction_list' => [],
         ];
 
         // Transaction from ATB Finance
         $transactions = $oldJason['transactions'];
         // Unique transaction ID
         $transactionID = 0;
+        $startDate = "9999-12-30";
+        $endDate = "0001-01-01";
 
         foreach ($transactions as $transaction) {
+            $getDate = $transaction['details']['posted'];
+            $date = substr($getDate, 0, 10);
+            $dateAndTime = str_replace($getDate, 'T', '');
+
+            if ($date < $startDate) {
+                $startDate = $date;
+            }
+
+            if ($date > $endDate) {
+                $endDate = $date;
+            }
+
             // Unique transaction ID
             $transactionID = $transactionID + 1;
-            $date = $transaction['details']['posted'];
 
             $transactionListArray = [
-                'date' => substr($date, 0, 10),
+                'date' => $date,
                 'partner' => $transaction['details']['type'],
-                'info' => $transaction['details']['description'].' '.str_replace($date, 'T', '').' CAD',
+                'info' => $transaction['details']['description'].' '.$dateAndTime.' CAD',
                 'transaction_id' => 'arbritary-unique-id'.$transactionID,
-                'sum' => (float) $transaction['details']['value']['amount']
+                'sum' => (float) $transaction['details']['value']['amount'],
             ];
-
             // push transaction_list data as an object under  transaction_list array
             $transactionListObject = (object) $transactionListArray;
             array_push($accountListArray['transaction_list'], $transactionListObject);
         }
+        $accountListArray['period_start'] = $startDate;
+        $accountListArray['period_end'] = $endDate;
 
         // push account_list data as an object under account_list array
         $accountListObject = (object) $accountListArray;
         $newJson = ['account_list' => []];
         array_push($newJson['account_list'], $accountListObject);
         $newJson = json_encode($newJson);
+
 //Nordigen json format --->  $newJason
 
         Storage::disk()
@@ -116,14 +135,24 @@ class ATBAPIController extends Controller
         return view('ATBAPI');
     }
 
+    public function getCustomer($token, $accountID)
+    {
+        $ATBAPI = new ATBAPI();
+        $getAccountInfo = $ATBAPI->getAccountByID($token, $accountID);
+
+        return $getAccountInfo;
+    }
+
     /**
      * @param  \Illuminate\Http\Request  $request
      * @return false|string
      */
-    public function getAccounts(Request $request){
-        $accounts =  $this->atb->getAccounts($this->token);
 
-        return response(json_encode(['data'=> $accounts]), 200);
+    public function getAccounts(Request $request)
+    {
+        $accounts = $this->atb->getAccounts($this->token);
+
+        return response(json_encode(['data' => $accounts]), 200);
     }
 
 
@@ -153,7 +182,7 @@ class ATBAPIController extends Controller
 
         $categorized = $cat->getCategorizationFromFile($account_id);
 
-        if($categorized) {
+        if ($categorized) {
             $accounts = $categorized->data->attributes->categorisation->accounts;
 
             // need to accomodate multiple accounts/ transactions later
@@ -166,12 +195,12 @@ class ATBAPIController extends Controller
             $selected = [
                 29 => [
                     'id' => 29,
-                    'title' =>'Utility services',
-                    'carbon_multiplier'=> 2.19,
+                    'title' => 'Utility services',
+                    'carbon_multiplier' => 2.19,
                 ],
                 //
                 30 => [
-                    'id'=> 30,
+                    'id' => 30,
                     'title' => 'Heating',
                     'carbon_multiplier' => 5.77,
                 ],
@@ -183,7 +212,7 @@ class ATBAPIController extends Controller
                 ],
                 //
                 33 => [
-                    'id'=> 33,
+                    'id' => 33,
                     'title' => 'Natural gas',
                     'carbon_multiplier' => 5.77,
                 ],
@@ -191,36 +220,36 @@ class ATBAPIController extends Controller
                 //    35 => ['title' =>  'Telephone, internet, TV, computer'],
                 //
                 36 => [
-                    'id'=> 36,
+                    'id' => 36,
                     'title' => 'Water',
                     'carbon_multiplier' => 0.173,
                 ],
                 //
                 37 => [
-                    'id'=> 37,
+                    'id' => 37,
                     'title' => 'Other utility expenses',
                     'carbon_multiplier' => 2.19,
                 ],
                 //
                 42 => [
-                    'id'=>42,
+                    'id' => 42,
                     'title' => 'Transportation',
                     'carbon_multiplier' => 0.92,
                 ],
                 //
                 44 => [
-                    'id'=> 44,
+                    'id' => 44,
                     'title' => 'Fuel',
                     'carbon_multiplier' => 2.49,
                 ],
                 46 => [
-                    'id'=> 46,
+                    'id' => 46,
                     'title' => 'Vehicle purchase, maintenance',
                     'carbon_multiplier' => 4.999,
                 ],
                 //	Vehicle purchase, maintenance
                 55 => [
-                    'id'=> 55,
+                    'id' => 55,
                     'title' => 'Accommodation, travel expenses',
                     'carbon_multiplier' => 0.323,
                 ],
@@ -238,7 +267,7 @@ class ATBAPIController extends Controller
 
                 $cat_transactions = $transactions->where('category_id', $id);
                 $value = $cat_transactions->sum('amount');
-                $carbon =  -1 * $value * $category['carbon_multiplier'];
+                $carbon = -1 * $value * $category['carbon_multiplier'];
                 $value_total += $value;
                 $carbon_total += $carbon;
 
@@ -246,18 +275,16 @@ class ATBAPIController extends Controller
                 $category['carbon'] = $carbon;
 
                 $stats[$id] = $category;
-
             }
 
             $result = [
                 'value_total' => $value_total,
                 'carbon_total' => $carbon_total,
                 'sustainability_score' => mt_rand(200, 700),
-                'categories'=> $stats,
+                'categories' => $stats,
             ];
 
             return response(json_encode(['data' => $result]), 200);
-
         } else {
             // generate file
             $this->createCategorizationUploadFile($account_id);
@@ -266,12 +293,10 @@ class ATBAPIController extends Controller
             $cat->startCategorization($account_id);
 
             return response('Locked', 423);
-
         }
 
         // retrieve job
         $categorized = $cat->getCategorization($account_id);
-
     }
 
     /**
@@ -305,7 +330,7 @@ class ATBAPIController extends Controller
             'credit_turnover' => 1000,
             'period_start' => '2020-01-01',
             'period_end' => '2020-01-01',
-            'transaction_list' => []
+            'transaction_list' => [],
         ];
 
         // Transaction from ATB Finance
@@ -323,7 +348,7 @@ class ATBAPIController extends Controller
                 'partner' => $transaction['details']['type'],
                 'info' => $transaction['details']['description'].' '.str_replace($date, 'T', '').' CAD',
                 'transaction_id' => 'arbritary-unique-id'.$transactionID,
-                'sum' => (float) $transaction['details']['value']['amount']
+                'sum' => (float) $transaction['details']['value']['amount'],
             ];
 
             // push transaction_list data as an object under  transaction_list array
