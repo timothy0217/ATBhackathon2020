@@ -35,12 +35,12 @@ class ATBAPIController extends Controller
 
         $this->emails = collect([
             [
-                'email' => 'test1@screaminglemon.ca',
+                'email' => 'martha@hotmail.com',
                 'account_id' => '942525966868-5e1328f8-85c',
             ],
             [
-                'email' => 'test2@screaminglemon.ca',
-                'account_id' => '6755313089802-2ed05252-586',
+                'email' => 'matthew@routeique.com',
+                'account_id' => '9043177494179-a30c474d-ced',
             ],
         ]);
     }
@@ -67,7 +67,6 @@ class ATBAPIController extends Controller
 
         if ($account->isEmpty()) {
             return response(json_encode(['error' => 'No account found'], 401));
-
         } else {
 
             $account = $account->first();
@@ -84,13 +83,22 @@ class ATBAPIController extends Controller
      */
     private function getAccountData($accountID)
     {
-        $getTransactions = $this->atb->getTransactionsForAccount($this->token, $accountID);
-        $getTransactions = json_encode($getTransactions, true);
+        $allAccounts = collect($this->atb->getAccount($this->token));
+
+        $account = $allAccounts->where('id', $accountID);
+        $accountName = $account['label'];
+        $accountFullInfo = $this->getCustomer($this->token, $accountID);
+        $accountBalance = $accountFullInfo['balance']['amount'];
 
         $fileName = $accountID.'.json';
 
-        //  Save Json as file to storage
-        Storage::put('public/upload/'.$fileName, $getTransactions);
+        if (! Storage::exists('public/upload/'.$fileName)) {
+            $getTransactions = $this->atb->getTransactionsForAccount($this->token, $accountID);
+            $getTransactions = json_encode($getTransactions, true);
+
+            //  Save Json as file to storage
+            Storage::put('public/upload/'.$fileName, $getTransactions);
+        }
 
         //  Read json file from storage
         $path = storage_path().'/app/public/upload/'.$fileName;
@@ -99,12 +107,12 @@ class ATBAPIController extends Controller
         // Nordigen Formating
         $accountListArray = [
             'account_nr' => $accountID,
-            'holder_name' => 'first_name last_name',
+            'holder_name' => $accountName,
             'holder_id' => $accountID,
             'bank_name' => 'screaming lemon',
             'currency' => 'CAD',
-            'start_balance' => 500000,
-            'end_balance' => 400000,
+            'start_balance' => $accountBalance,
+            'end_balance' => $accountBalance,
             'debit_turnover' => 101000,
             'credit_turnover' => 1000,
             'period_start' => '2020-01-01',
@@ -386,11 +394,10 @@ class ATBAPIController extends Controller
             return response(json_encode(['data' => $result]), 200);
         } else {
             // try to find file
-
-
-
-            // generate file
-            $this->createCategorizationUploadFile($account_id);
+            if (! Storage::exists('public/upload/transactions-'.$account_id.'.json')) {
+                // generate file
+                $this->createCategorizationUploadFile($account_id);
+            };
 
             // start categorization
             $cat->startCategorization($account_id);
