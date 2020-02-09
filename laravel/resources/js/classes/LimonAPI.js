@@ -46,7 +46,7 @@ export default class LimonAPI {
         const fakeData = this.getFakeCarbonData();
         const sustainabilityScore = fakeData.sustainability_score;
         const sustainabilityPercentage = sustainabilityScore / 1000;
-        return sustainabilityPercentage.toFixed(2);
+        return sustainabilityPercentage;
     }
 
     getDonutChartLabels() {

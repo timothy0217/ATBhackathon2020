@@ -3,6 +3,7 @@ import Navigation from '../Navigation/Navigation';
 import DonutChart from "../Charts/DonutChart";
 import BarChart from "../Charts/BarChart";
 import clsx from "clsx";
+import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from '@material-ui/core/styles';
 import LimonGaugeChart from "../Charts/GaugeChart";
@@ -31,65 +32,82 @@ export default function ResultsPage() {
     }));
     const classes = useStyles();
 
+    const scoreResult = JSON.parse(localStorage.getItem('score_result'));
+    console.log('local storage', scoreResult.sustainability_score);
+
     return (
         <React.Fragment>
             <Navigation/>
 
-            <main
-                className={clsx(classes.content, {
-                    [classes.contentShift]: open,
-                })}
-            >
-                <div className={classes.drawerHeader}/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <center>
-                    <Typography variant="h4">
-                        Sustainability Score
-                    </Typography>
-                </center>
-                <br/>
-                <LimonGaugeChart/>
-                <br />
-                <br />
-                <br />
-                <br />
+            <Grid container spacing={0}>
+                <Grid item xs={2}></Grid>
 
-                <center>
-                    <Typography variant="h4">
-                        Total Carbon Footprint
-                    </Typography>
-                </center>
-                <br/>
-                <DonutChart/>
-                <br />
-                <br />
-                <br />
-                <br />
+                <Grid item xs={8}>
+                <main
+                    className={clsx(classes.content, {
+                        [classes.contentShift]: open,
+                    })}
+                >
+                    <div className={classes.drawerHeader}/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <center>
+                        <Typography variant="h4">
+                            Sustainability Score
+                        </Typography>
+                        <br />
+                        <b>
+                        <Typography variant="h1">
+                            {scoreResult.sustainability_score}
+                        </Typography>
+                        </b>
+                    </center>
+                    <br/>
+                    <LimonGaugeChart/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
 
-                <center>
-                    <Typography variant="h4">
-                        Total Spent
-                    </Typography>
-                </center>
-                <br/>
-                <BarChart/>
+                    <center>
+                        <Typography variant="h4">
+                            Total Carbon Footprint
+                        </Typography>
+                    </center>
+                    <br/>
+                    <DonutChart/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
 
-                <br />
-                <br />
-                <br />
-                <br />
+                    <center>
+                        <Typography variant="h4">
+                            Total Spent
+                        </Typography>
+                    </center>
+                    <br/>
+                    <BarChart/>
 
-                <center>
-                    <Typography variant="h4">
-                        Transactions
-                    </Typography>
-                </center>
-                <br/>
-                <TransactionsTable/>
-            </main>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <center>
+                        <Typography variant="h4">
+                            Transactions
+                        </Typography>
+                    </center>
+                    <br/>
+                    <TransactionsTable/>
+                </main>
+                </Grid>
+
+                <Grid item xs={2}></Grid>
+            </Grid>
         </React.Fragment>
     );
 }
