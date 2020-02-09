@@ -1,0 +1,47 @@
+@import 'variables';
+
+body {
+    background: $primary-variant !important;
+}
+
+h4 {
+    margin-top: 100px !important;
+}
+
+.MuiContainer-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-container {
+        width: 60% !important;
+        text-align: center !important;
+    }
+}
+
+// Form container
+.MuiFormControl-root {
+    margin-bottom: 30px !important;
+}
+
+// Input container
+.MuiInputBase-root {
+    background: $white !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+// Select container
+.MuiSelect-root {
+    text-align: left !important;
+}
+
+.submit {
+    width: 35%;
+    border-radius: 100px !important;
+    padding: 10px 25px !important;
+
+    &:hover {
+        color: $black !important;
+    }
+}
