@@ -61,11 +61,9 @@ class ATBAPIController extends Controller
      */
     public function getSustainabilityScore(Request $request, $id){
         $cat = new CategorizationService();
-        dd($cat->categorize('test'));
+        dd($cat->startCategorization('test'));
 
-        $cat = new CategorizationService();
 
-        dd($cat->categorize('test'));
 
 
 

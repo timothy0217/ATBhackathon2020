@@ -3,7 +3,6 @@
 namespace App\Http\Service;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
 
 class CategorizationService
 {
@@ -38,6 +37,15 @@ class CategorizationService
         curl_close($curl);
 
         $this->token = $response['access_token'];
+
+        $this->client = new Client([
+            'base_uri' => $this->base_uri,
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer '.$this->token,
+                'Accept' => 'application/json',
+            ],
+        ]);
     }
 
     public function getCategories()
@@ -57,72 +65,31 @@ class CategorizationService
             ->getContents();
     }
 
-    public function categorize($transactions)
+    public function startCategorization($transactions)
     {
 
-        $file = Storage::disk()
-            ->get('example.json');
+        //$response = $this->client->request('post', '/v2/report', [
+        //    'multipart' => [['name'=> 'input', 'contents' => Storage::disk()
+        //        ->readStream('example.json') , 'filename' => 'example.json'],
+        //    ],
+        //]);
+        //
+        //$data =  $response->getBody()
+        //    ->getContents();
 
+        //$job_id = $data['request-id'] = ;
 
-        //curl -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1VUXlRVFJFTWpjeE1UUkVNVFl4TmpjNVJrUTJOVUl5TjBRMU4wSTJNVEEzUlVRNU9UWTRNZyJ9.eyJpc3MiOiJodHRwczovL2F1dGgubm9yZGlnZW4uY29tLyIsInN1YiI6IlJ2bUJPYnJZeXcybDlGN2wxN25zbjFYWHpRQWdMUWRFQGNsaWVudHMiLCJhdWQiOiJodHRwczovL25vcmRpZ2VuL2FwaSIsImlhdCI6MTU4MTIwMjE4MSwiZXhwIjoxNTgxMjg4NTgxLCJhenAiOiJSdm1CT2JyWXl3Mmw5RjdsMTduc24xWFh6UUFnTFFkRSIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.plzcSs9OEs_Pm9ngFoUZ9zVJVmdEfCqWVaX69c8hPrjAt10eg8_VZiBSZSTi6pIBeQgY4QFlv0c1-QwTf0yM2jgFD-APzZ9VTDRrAy8KyYrEtl-5I67Qb9vgrtHpxyqjmAHrm1iBtu7T2Lqdwl2Vqik85eWPL7w2iaCVSyem8SCdbUcNEpvOjxzy9BjIhpeMJJyL4UnrLHq0DxwlQRk6SQVMQGW5C7owsJQwDAOUUDglB980WZSv1JuSjJoWjUVdPysnKE6dbatoot3JWQJID1aBuclYAWN7XOUmewiHFRBMA-FzFwPUdhwLrpCwZp4umyXDdp6Wgk8crj6YsKf3yQ' \
-        //-F input=@example.json \
-        //    https://api.nordigen.com/v2/report
+        $job_id = '9da2287e-0dc9-4031-b083-82993e52bdc5';
 
-//
-//        >             https://api.nordigen.com/v2/report
-//{"data":{"attributes":{"available-operations":["categorisation","income","features","risk","observations","kyc","credit-scores","loans"],"request-id":"9250be63-83cd-4e96-86fc-67990f632f5a","status":"completed"},"relationships":{"operations":{"links":{"related":"https://api.nordigen.com/v2/report/process/9250be63-83cd-4e96-86fc-67990f632f5a","self":"https://api.nordigen.com/v2/report"}}},"type":"report pre-processing record"}}
-//
-//
-//        curl -X PUT \
-//        https://api.nordigen.com/v2/report/process/9250be63-83cd-4e96-86fc-67990f632f5a \
-//-H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1VUXlRVFJFTWpjeE1UUkVNVFl4TmpjNVJrUTJOVUl5TjBRMU4wSTJNVEEzUlVRNU9UWTRNZyJ9.eyJpc3MiOiJodHRwczovL2F1dGgubm9yZGlnZW4uY29tLyIsInN1YiI6IlJ2bUJPYnJZeXcybDlGN2wxN25zbjFYWHpRQWdMUWRFQGNsaWVudHMiLCJhdWQiOiJodHRwczovL25vcmRpZ2VuL2FwaSIsImlhdCI6MTU4MTIwMjE4MSwiZXhwIjoxNTgxMjg4NTgxLCJhenAiOiJSdm1CT2JyWXl3Mmw5RjdsMTduc24xWFh6UUFnTFFkRSIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.plzcSs9OEs_Pm9ngFoUZ9zVJVmdEfCqWVaX69c8hPrjAt10eg8_VZiBSZSTi6pIBeQgY4QFlv0c1-QwTf0yM2jgFD-APzZ9VTDRrAy8KyYrEtl-5I67Qb9vgrtHpxyqjmAHrm1iBtu7T2Lqdwl2Vqik85eWPL7w2iaCVSyem8SCdbUcNEpvOjxzy9BjIhpeMJJyL4UnrLHq0DxwlQRk6SQVMQGW5C7owsJQwDAOUUDglB980WZSv1JuSjJoWjUVdPysnKE6dbatoot3JWQJID1aBuclYAWN7XOUmewiHFRBMA-FzFwPUdhwLrpCwZp4umyXDdp6Wgk8crj6YsKf3yQ' \
-//        -H 'Content-Type: application/json' \
-//        -d '{
-//  "operations": ["categorisation"],
-//  "country": "uk"
-//}'
-//
-//        {"data":{"attributes":{"request-id":"9250be63-83cd-4e96-86fc-67990f632f5a","status":"queued"},"relationships":{"result":{"links":{"related":"https://api.nordigen.com/v2/report/9250be63-83cd-4e96-86fc-67990f632f5a","self":"https://api.nordigen.com/v2/report/process/9250be63-83cd-4e96-86fc-67990f632f5a"}}},"type":"report processing record"}}
-//
-//        curl -X GET \
-//        https://api.nordigen.com/v2/report/9250be63-83cd-4e96-86fc-67990f632f5a \
-//-H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1VUXlRVFJFTWpjeE1UUkVNVFl4TmpjNVJrUTJOVUl5TjBRMU4wSTJNVEEzUlVRNU9UWTRNZyJ9.eyJpc3MiOiJodHRwczovL2F1dGgubm9yZGlnZW4uY29tLyIsInN1YiI6IlJ2bUJPYnJZeXcybDlGN2wxN25zbjFYWHpRQWdMUWRFQGNsaWVudHMiLCJhdWQiOiJodHRwczovL25vcmRpZ2VuL2FwaSIsImlhdCI6MTU4MTIwMjE4MSwiZXhwIjoxNTgxMjg4NTgxLCJhenAiOiJSdm1CT2JyWXl3Mmw5RjdsMTduc24xWFh6UUFnTFFkRSIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.plzcSs9OEs_Pm9ngFoUZ9zVJVmdEfCqWVaX69c8hPrjAt10eg8_VZiBSZSTi6pIBeQgY4QFlv0c1-QwTf0yM2jgFD-APzZ9VTDRrAy8KyYrEtl-5I67Qb9vgrtHpxyqjmAHrm1iBtu7T2Lqdwl2Vqik85eWPL7w2iaCVSyem8SCdbUcNEpvOjxzy9BjIhpeMJJyL4UnrLHq0DxwlQRk6SQVMQGW5C7owsJQwDAOUUDglB980WZSv1JuSjJoWjUVdPysnKE6dbatoot3JWQJID1aBuclYAWN7XOUmewiHFRBMA-FzFwPUdhwLrpCwZp4umyXDdp6Wgk8crj6YsKf3yQ'
-//
-//
-//        "data":{"attributes":{"categorisation":{"accounts":[{"account_number":"GB29IBAN20160604201923","bank":"Some Bank","country":"uk","currencies":[{"code":"GBP","credit_turnover":1100.8,"debit_turnover":366.4,"end_balance":2750.86,"start_balance":2016.46,"transactions":[{"amount":-15.45,"category_id":84,"date":"2019-08-01","info":"PURCHASE 201620190406111 15.45GBP","partner":"Local Groceries","transaction_id":"arbritary-unique-id1"},{"amount":900.8,"category_id":85,"date":"2019-08-05","info":"SALARY 201620190406222 900.80GBP","partner":"Job Ltd","transaction_id":"arbritary-unique-id2"},{"amount":200.0,"category_id":23,"date":"2019-08-07","info":"ROYALTIES 201620190406333 200.00GBP","partner":"Freelance Agency Ltd","transaction_id":"arbritary-unique-id3"},{"amount":-50.45,"category_id":44,"date":"2019-08-11","info":"PURCHASE 201620190406444 50.45GBP","partner":"Gas Station","transaction_id":"arbritary-unique-id4"},{"amount":-300.5,"category_id":97,"date":"2019-08-15","info":"MORTGAGE PAYMENT, AGREEMENT A201664 300.50GBP","partner":"Loan Bank","transaction_id":"arbritary-unique-id5"}]}],"holders":[{"name":"Alex Watson"}],"is_joint_ownership":false,"is_shared_ownership":false,"period_end":"2019-08-15","period_start":"2019-08-01"}],"category_tree_version":"uk_202001311420"},"status":"completed"},"type":"report processing status"}}
-//
-//        $response = $this->client->request('get', '/v2/available-models', [
-//            //'form_params' => [
-//            //    "operations" => ["categorisation"],
-//            //    "country" => "uk",
-//            //    'input' => $file,
-//            //],
-//        ]);
-//
-//        return $response->getBody()
-//            ->getContents();
+        $response = $this->client->request('PUT', 'v2/report/process/'.$job_id, [
+            "operations" => ["categorisation"],
+            "country" => "uk",
+        ]
+        );
 
-        $curl = curl_init();
+        $data = $response->getBody()
+            ->getContents();
 
-        curl_setopt_array($curl, [
-            CURLOPT_URL => "https://api.nordigen.com/v2/report",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "source=[input=@".$file."]",
-            CURLOPT_HTTPHEADER => [
-                "Content-Type: application/x-www-form-urlencoded",
-            "Authorization: Bearer ". $this->token,
-            ],
-        ]);
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        echo $response;
+        return $data;
     }
 }
