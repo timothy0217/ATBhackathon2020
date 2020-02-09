@@ -351,7 +351,8 @@ class ATBAPIController extends Controller
                 46 => [
                     'id' => 46,
                     'title' => 'Vehicle purchase, maintenance',
-                    'carbon_multiplier' => 4.999,
+                    'carbon_multiplier' => false,
+                    'carbon_static' => 59.99
                 ],
                 //	Vehicle purchase, maintenance
                 55 => [
@@ -373,7 +374,12 @@ class ATBAPIController extends Controller
 
                 $cat_transactions = $transactions->where('category_id', $id);
                 $value = $cat_transactions->sum('amount');
-                $carbon = -1 * $value * $category['carbon_multiplier'];
+
+                if($category['carbon_multiplier']) {
+                    $carbon = -1 * $value * $category['carbon_multiplier'];
+                } else {
+                    $carbon = $category['carbon_static'];
+                }
                 $value_total += $value;
                 $carbon_total += $carbon;
 
