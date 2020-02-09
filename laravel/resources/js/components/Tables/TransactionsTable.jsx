@@ -32,7 +32,7 @@ export default function TransactionsTable() {
                 </TableHead>
                 <TableBody>
                     {rows.map(row => (
-                        <TableRow key={row.name}>
+                        <TableRow key={row.transactionID}>
                             <TableCell component="th" scope="row">
                                 {row.date}
                             </TableCell>

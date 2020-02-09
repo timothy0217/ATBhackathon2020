@@ -67,8 +67,8 @@ export default class LimonAPI {
         const transactions = accountData.transaction_list;
         console.log('account', accountData);
 
-        function createData(date, name, sum) {
-            return { date, name, sum };
+        function createData(date, name, sum, transactionID) {
+            return { date, name, sum, transactionID };
         }
 
         const rows = [];
@@ -78,7 +78,7 @@ export default class LimonAPI {
             const amount = transaction.sum + ' (' + accountData.currency + ')';
 
             rows.push(
-                createData(date, transaction.info, amount)
+                createData(date, transaction.info, amount, transaction.transaction_id)
             );
         });
 
