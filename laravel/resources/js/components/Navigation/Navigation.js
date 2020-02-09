@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from "clsx";
 import Drawer from '@material-ui/core/Drawer';
@@ -17,8 +17,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import '../../../sass/Navigation.scss';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const drawerWidth = 300;
 
@@ -65,6 +66,7 @@ const useStyles = makeStyles(theme => ({
 export default function Navigation() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const history = useHistory();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -73,6 +75,10 @@ export default function Navigation() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const handleLogout = useCallback(() => {
+        history.push('/');
+    });
 
     return (
         <div className={classes.root}>
@@ -125,14 +131,6 @@ export default function Navigation() {
                         </ListItem>
                     </Link>
                     <Link>
-                        <ListItem button key="insights">
-                            <ListItemIcon>
-                                <EmojiObjectsIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Insights" />
-                        </ListItem>
-                    </Link>
-                    <Link>
                         <ListItem button key="settings">
                             <ListItemIcon>
                                 <SettingsIcon />
@@ -140,12 +138,12 @@ export default function Navigation() {
                             <ListItemText primary="Settings" />
                         </ListItem>
                     </Link>
-                    <Link>
+                    <Link onClick={handleLogout}>
                         <ListItem button key="support">
                             <ListItemIcon>
-                                <LiveHelpIcon />
+                                <ExitToAppIcon />
                             </ListItemIcon>
-                            <ListItemText primary="Support" />
+                            <ListItemText primary="Logout" />
                         </ListItem>
                     </Link>
                 </List>
