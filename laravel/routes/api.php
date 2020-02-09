@@ -29,9 +29,9 @@ Route::get('accounts', array(
 ));
 
 
-//Route::get('/accounts/{id}', array(
-//    'uses' => 'ATBAPIController@getAccount'
-//));
+Route::get('/accounts/{id}/transactions', array(
+    'uses' => 'ATBAPIController@getAccount'
+));
 
 
 Route::get('/accounts/{id}/score', array(

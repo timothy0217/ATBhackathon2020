@@ -42,20 +42,32 @@ class ATBAPIController extends Controller
         session()->put('key', $token);
     }
 
+    public function login(Request $request){
+
+        $email= $request->get('email');
+
+        // get account ID for email
+
+        //
+
+
+    }
+
+
     public function fetchAPI(Request $request)
     {
 // fetch all accounts and it's ID
 
-        $getAllAccounts = $ATBAPI->getAccount($token);
+        $getAllAccounts = $this->atb->getAccount($this->token);
         $getAccountID = $getAllAccounts[20]['id']; // Change the number to choose between accounts;
-        $getTransactions = $ATBAPI->getTransactionsForAccount($token, $getAccountID);
+        $getTransactions = $this->atb->getTransactionsForAccount($this->token, $getAccountID);
         $getTransactions = json_encode($getTransactions, true);
         $accountID = $getAccountID;
         $fileName = $accountID.'.json';
 
 //Get Account Info
         $accountName = $getAllAccounts[20]['label'];
-        $accountFullInfo = $this->getCustomer($token, $accountID);
+        $accountFullInfo = $this->getCustomer($this->token, $accountID);
         $accountBalance = $accountFullInfo['balance']['amount'];
 
 //  Save Json as file to storage
@@ -66,7 +78,6 @@ class ATBAPIController extends Controller
         $oldJason = json_decode(file_get_contents($path), true);
 
 // Nordigen Formating
-
         $accountListArray = [
             'account_nr' => $accountID,
             'holder_name' => 'Mike Allan',
@@ -132,7 +143,6 @@ class ATBAPIController extends Controller
 
         return $accountID;
 
-        return view('ATBAPI');
     }
 
     public function getCustomer($token, $accountID)
