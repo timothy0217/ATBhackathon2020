@@ -29,25 +29,39 @@ export default class Main extends Component {
 
     render() {
         return (
-          
+
             <Container class="mainPage">
-                 <div id="backToHomeBtn"><Link to="/home/"><Button id="bckBtn" className="btn btn-primary">Back to Home</Button></Link></div>
+                <div id="backToHomeBtn"><Link to="/home/"><Button id="bckBtn" className="btn btn-primary">Back to Home</Button></Link></div>
                 <div class="firstContainer">
                     <img className="firstImage" src='../../../../images/APP.png' alt="picture" />
                     <div class="firstTextContainer">
-                        <h2 class="firstTitle">Our Mission</h2>
-                        <p class="firstparagraph">Lemón is dicated to providing users insightful analytics about
-                        their income spending and how it impacts the environment.</p>
+                        <h2 class="firstTitle">Our mission</h2>
+                        <p class="firstparagraph">We know that climate change and sustainability are some of the most pressing 
+                        issues of our time. How can a single person help create a greener future?
+                        <br/><br/>
+                        We believe that small but effective changes to our lifestyles and spending 
+                        habits will have positive and long-lasting environmental impacts. 
+                        With Limón, we hope to empower and inspire people by showing them how their individual actions 
+                        will help save the world.
+                        <br/><br/>
+                        Limon is a tool that helps you monitor and improve your environmental impact. 
+                        We make it easy for you to visualize your carbon footprint and understand how your everyday actions can 
+                        impact the environment.
+                        </p>
                     </div>
                 </div>
                 <br />
-                <br/>
+                <br />
                 <div class="secondContainer">
                     <img className="secondImage" src='../../../../images/SAVING_TOGETHER.png' alt="picture" />
                     <div class="secondTextContainer">
                         <h2 class="secondTitle">Connect your accounts</h2>
-                        <p class="secondparagraph">Lemón is dicated to providing users insightful analytics about
-                        their income spending and how it impacts the environment.</p>
+                        <p class="secondparagraph">After you connect Limón to your financial accounts, we’ll take care of the hard part:
+                        <br/>
+                        <br/>
+                        -      Evaluating your environmental impact by analyzing your spending habits and giving you a sustainability score (i)
+                        <br/>
+                        -      Delivering valuable insights in an easy-to-understand dashboard.</p>
                     </div>
                 </div>
                 <br />
@@ -55,8 +69,10 @@ export default class Main extends Component {
                     <img className="thirdImage" src='../../../../images/TARGET.png' alt="picture" />
                     <div class="thirdTextContainer">
                         <h2 class="thirdTitle">Know thyself</h2>
-                        <p class="thirdparagraph">Lemón is dicated to providing users insightful analytics about
-                        their income spending and how it impacts the environment.</p>
+                        <p class="thirdparagraph">Once you know your sustainability score and explore the dashboard, 
+                        you’ll know how your spending and consumption affects your community and the planet. 
+                        Your sustainability score will constantly be updated, so you can see what changes you make in your lifestyle 
+                        and spending are helping to improve your rating.</p>
                     </div>
                 </div>
                 <div>
