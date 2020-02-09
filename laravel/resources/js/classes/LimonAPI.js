@@ -3,8 +3,17 @@ import axios from 'axios';
 
 export default class LimonAPI {
     getFakeCarbonData() {
-        const fakeData = '{"data":{"value_total":-50.45,"carbon_total":5.045000000000001,"sustainability_score":523,"categories":[{"id":29,"title":"Utility services","carbon_multiplier":0.1,"value":125.32,"carbon":50},{"id":30,"title":"Heating","carbon_multiplier":0.1,"value":55.23,"carbon":43},{"id":31,"title":"Electricity","carbon_multiplier":0.1,"value":23.19,"carbon":22},{"id":32,"title":"Natural gas","carbon_multiplier":0.1,"value":43.22,"carbon":85},{"id":36,"title":"Water","carbon_multiplier":0.1,"value":99.21,"carbon":22},{"id":37,"title":"Other utility expenses","carbon_multiplier":0.1,"value":87.94,"carbon":49},{"id":38,"title":"Transportation","carbon_multiplier":0.1,"value":156.3,"carbon":21},{"id":42,"title":"Fuel","carbon_multiplier":0.1,"value":278.93,"carbon":5.045000000000001},{"id":47,"title":"Vehicle purchase, maintenance","carbon_multiplier":0.1,"value":150.44,"carbon":32},{"id":50,"title":"Accommodation, travel expenses","carbon_multiplier":0.1,"value":430.43,"carbon":88}]}}';
-        return JSON.parse(fakeData).data;
+        // const fakeData = '{"data":{"value_total":-50.45,"carbon_total":5.045000000000001,"sustainability_score":523,"categories":[{"id":29,"title":"Utility services","carbon_multiplier":0.1,"value":125.32,"carbon":50},{"id":30,"title":"Heating","carbon_multiplier":0.1,"value":55.23,"carbon":43},{"id":31,"title":"Electricity","carbon_multiplier":0.1,"value":23.19,"carbon":22},{"id":32,"title":"Natural gas","carbon_multiplier":0.1,"value":43.22,"carbon":85},{"id":36,"title":"Water","carbon_multiplier":0.1,"value":99.21,"carbon":22},{"id":37,"title":"Other utility expenses","carbon_multiplier":0.1,"value":87.94,"carbon":49},{"id":38,"title":"Transportation","carbon_multiplier":0.1,"value":156.3,"carbon":21},{"id":42,"title":"Fuel","carbon_multiplier":0.1,"value":278.93,"carbon":5.045000000000001},{"id":47,"title":"Vehicle purchase, maintenance","carbon_multiplier":0.1,"value":150.44,"carbon":32},{"id":50,"title":"Accommodation, travel expenses","carbon_multiplier":0.1,"value":430.43,"carbon":88}]}}';
+
+        axios.post('/api/login', {
+            email: localStorage.getItem('email')
+        }).then(loginResult => {
+            axios.get('/api/accounts/' + loginResult.data.data.account_list[0].account_nr + '/score').then(scoreResult => {
+                localStorage.setItem('score_result', JSON.stringify(scoreResult.data.data));
+            });
+        });
+
+        return JSON.parse(localStorage.getItem('score_result'));
     }
 
     getAccountData() {
@@ -16,8 +25,7 @@ export default class LimonAPI {
         });
 
         const accountData = JSON.parse(localStorage.getItem('account_details'));
-        const accounts = accountData.account_list[0];
-        return accounts;
+        return accountData.account_list[0];
     }
 
     getSustainabilityPercentage() {
@@ -29,9 +37,10 @@ export default class LimonAPI {
 
     getDonutChartLabels() {
         const categories = this.getFakeCarbonData().categories;
+        const categoriesArray = Object.keys(categories).map(i => categories[i]);
         const labels = [];
 
-        categories.forEach(category => {
+        categoriesArray.forEach(category => {
             labels.push(category.title);
         });
 
@@ -40,9 +49,10 @@ export default class LimonAPI {
 
     getDonutChartData() {
         const categories = this.getFakeCarbonData().categories;
+        const categoriesArray = Object.keys(categories).map(i => categories[i]);
         const data = [];
 
-        categories.forEach(category => {
+        categoriesArray.forEach(category => {
             data.push(category.carbon);
         });
 
@@ -51,9 +61,10 @@ export default class LimonAPI {
 
     getBarChartLabels() {
         const categories = this.getFakeCarbonData().categories;
+        const categoriesArray = Object.keys(categories).map(i => categories[i]);
         const labels = [];
 
-        categories.forEach(category => {
+        categoriesArray.forEach(category => {
             labels.push(category.title);
         });
 
@@ -62,9 +73,10 @@ export default class LimonAPI {
 
     getBarChartData() {
         const categories = this.getFakeCarbonData().categories;
+        const categoriesArray = Object.keys(categories).map(i => categories[i]);
         const data = [];
 
-        categories.forEach(category => {
+        categoriesArray.forEach(category => {
             data.push(category.value);
         });
 
