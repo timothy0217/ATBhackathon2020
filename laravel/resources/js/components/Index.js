@@ -4,7 +4,6 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home/Home';
 import Main from './Home/Main';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
-import PassionPage from './Passions/Passions';
 import ResultsPage from './Results/results';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../sass/app.scss';
@@ -18,7 +17,6 @@ class Index extends Component {
                     <Route exact path='/' component={Home} />
                     <Route exact path='/main' component={Main} />
                     <Route path='/registerPage/' component={RegistrationPage} />
-                    <Route path='/passionPage/' component={PassionPage} />
                     <Route path='/resultsPage/' component={ResultsPage} />
                     <Route path='/contributionsPage/' component={Contributions} />
                     <Redirect to='/' />

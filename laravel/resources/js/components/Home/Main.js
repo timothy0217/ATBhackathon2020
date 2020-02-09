@@ -31,7 +31,7 @@ export default class Main extends Component {
         return (
 
             <Container class="mainPage">
-                <div id="backToHomeBtn"><Link to="/home/"><Button id="bckBtn" className="btn btn-primary">Back to Home</Button></Link></div>
+                 <div class="topContainer"><Link to="/home/"><img class="homeImg" src="../../../images/Word_Mark.png"></img></Link></div>
                 <div class="firstContainer">
                     <img className="firstImage" src='../../../../images/APP.png' alt="picture" />
                     <div class="firstTextContainer">
@@ -75,8 +75,8 @@ export default class Main extends Component {
                         and spending are helping to improve your rating.</p>
                     </div>
                 </div>
-                <div>
-                </div>
+                <div id="backToHomeBtn"><Link to="/home/"><Button id="bckBtn" className="btn btn-primary">Back to Home</Button></Link></div>
+    
             </Container>
         );
     }
