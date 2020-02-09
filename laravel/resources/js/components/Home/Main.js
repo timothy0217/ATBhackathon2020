@@ -30,8 +30,8 @@ export default class Main extends Component {
     render() {
         return (
           
-            <Container>
-                 <div id="backToHomeBtn"><Link to="/home/"><Button className="btn btn-primary">Back to Home</Button></Link></div>
+            <Container class="mainPage">
+                 <div id="backToHomeBtn"><Link to="/home/"><Button id="bckBtn" className="btn btn-primary">Back to Home</Button></Link></div>
                 <div class="firstContainer">
                     <img className="firstImage" src='../../../../images/APP.png' alt="picture" />
                     <div class="firstTextContainer">
@@ -41,6 +41,7 @@ export default class Main extends Component {
                     </div>
                 </div>
                 <br />
+                <br/>
                 <div class="secondContainer">
                     <img className="secondImage" src='../../../../images/SAVING_TOGETHER.png' alt="picture" />
                     <div class="secondTextContainer">
