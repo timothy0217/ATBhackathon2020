@@ -1,0 +1,46 @@
+.loginmaincontainer {
+    background-image: url('../images/Home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh !important;
+    width: 100vw !important;
+}
+.loginLopContainer{
+    width: 100vw;
+    margin-bottom: 3.5%;
+}
+.homeImg{
+    height: 5%;
+    width: 8%;
+    margin: 4%;
+}
+.submitLogin {
+    width: 60%;
+    border-radius: 100px !important;
+    padding: 10px 25px !important;
+    &:hover {
+        color: black !important;
+    }
+}
+// Input container
+.MuiInputBase-root {
+    background: white !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+    // Select container
+.MuiSelect-root {
+    text-align: left !important;
+}
+.boxContainer {
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 2%;
+    background-color: #FFF79C;
+    text-align: center;
+    border-radius: 25px;
+}
+.loginForm-container {
+    width: 80%;
+    margin-left: 10%;
+}
