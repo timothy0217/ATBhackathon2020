@@ -83,21 +83,25 @@ class ATBAPIController extends Controller
      */
     private function getAccountData($accountID)
     {
-        $allAccounts = collect($this->atb->getAccount($this->token));
-
-        $account = $allAccounts->where('id', $accountID);
-        $accountName = $account->get('label');
-        $accountFullInfo = $this->getCustomer($this->token, $accountID);
-        $accountBalance = $accountFullInfo['balance']['amount'];
 
         $fileName = $accountID.'.json';
 
         if (! Storage::exists('public/upload/'.$fileName)) {
+            $allAccounts = collect($this->atb->getAccount($this->token));
+
+            $account = $allAccounts->where('id', $accountID);
+            $accountName = $account->get('label');
+            $accountFullInfo = $this->getCustomer($this->token, $accountID);
+            $accountBalance = $accountFullInfo['balance']['amount'];
+
             $getTransactions = $this->atb->getTransactionsForAccount($this->token, $accountID);
             $getTransactions = json_encode($getTransactions, true);
 
             //  Save Json as file to storage
             Storage::put('public/upload/'.$fileName, $getTransactions);
+        } else {
+            $accountName = "Martha Velasquez";
+            $accountBalance = 10000;
         }
 
         //  Read json file from storage
