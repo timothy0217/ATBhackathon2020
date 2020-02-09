@@ -3,6 +3,7 @@
 namespace App\Http\Service;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7;
 
 class CategorizationService
 {
@@ -65,7 +66,7 @@ class CategorizationService
             ->getContents();
     }
 
-    public function startCategorization($transactions)
+    public function startCategorization($transactions, $account_id)
     {
 
         //$response = $this->client->request('post', '/v2/report', [
@@ -79,17 +80,37 @@ class CategorizationService
 
         //$job_id = $data['request-id'] = ;
 
-        $job_id = '9da2287e-0dc9-4031-b083-82993e52bdc5';
+        $job_id = '9250be63-83cd-4e96-86fc-67990f632f5a';
 
-        $response = $this->client->request('PUT', 'v2/report/process/'.$job_id, [
-            "operations" => ["categorisation"],
-            "country" => "uk",
-        ]
-        );
 
-        $data = $response->getBody()
-            ->getContents();
+        //$command = "   curl -X PUT  https://api.nordigen.com/v2/report/process/".$job_id. " -H 'Authorization: Bearer " . $this->token. "' -H 'Content-Type: application/json'  -d '{\"operations\": [\"categorisation\"],   \"country\": \"uk\"}'";
+        //
+        //$output = shell_exec($command);
+        //
 
-        return $data;
+        $response = $this->client->request('get', 'v2/report/'.$job_id);
+
+
+
+        \Storage::disk()->put('/public/downloads/statement-'.$account_id.'.json', $response->getBody()
+            ->getContents());
+
+        return $account_id;
+
+
+
+
+    }
+
+    public function getCategorization($account_id){
+
+
+        try {
+            $categorization = \Storage::disk()
+                ->get('public/downloads/statement-'.$account_id.'.json');
+            return \GuzzleHttp\json_decode($categorization);
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }
