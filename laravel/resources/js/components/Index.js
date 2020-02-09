@@ -15,7 +15,7 @@ class Index extends Component {
             <HashRouter>
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/setup' component={Main} />
+                    <Route exact path='/main' component={Main} />
                     <Route path='/registerPage/' component={RegistrationPage} />
                     <Route path='/passionPage/' component={PassionPage} />
                     <Route path='/resultsPage/' component={ResultsPage} />
