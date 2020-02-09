@@ -63,7 +63,6 @@ class ATBAPI
         }
         // return xml
         $json = json_decode($result,TRUE);
-dd($json);
         // convert to json
         // decode json to array
         return $json;

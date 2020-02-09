@@ -66,39 +66,33 @@ class CategorizationService
             ->getContents();
     }
 
-    public function startCategorization($transactions, $account_id)
+    public function startCategorization($account_id)
     {
 
-        //$response = $this->client->request('post', '/v2/report', [
-        //    'multipart' => [['name'=> 'input', 'contents' => Storage::disk()
-        //        ->readStream('example.json') , 'filename' => 'example.json'],
-        //    ],
-        //]);
-        //
-        //$data =  $response->getBody()
-        //    ->getContents();
+        $response = $this->client->request('post', '/v2/report', [
+            'multipart' => [['name'=> 'input', 'contents' => \Storage::disk()
+                ->readStream('/public/upload/transactions-'.$account_id.'.json') , 'filename' => '/public/upload/transactions-'.$account_id.'.json'],
+            ],
+        ]);
 
-        //$job_id = $data['request-id'] = ;
-
-        $job_id = '9250be63-83cd-4e96-86fc-67990f632f5a';
+        $data = json_decode($response->getBody()
+            ->getContents());
 
 
-        //$command = "   curl -X PUT  https://api.nordigen.com/v2/report/process/".$job_id. " -H 'Authorization: Bearer " . $this->token. "' -H 'Content-Type: application/json'  -d '{\"operations\": [\"categorisation\"],   \"country\": \"uk\"}'";
-        //
-        //$output = shell_exec($command);
-        //
+        $attributes = collect($data->data->attributes);
+        $job_id = $attributes->get('request-id');
+
+        $command = "   curl -X PUT  https://api.nordigen.com/v2/report/process/".$job_id. " -H 'Authorization: Bearer " . $this->token. "' -H 'Content-Type: application/json'  -d '{\"operations\": [\"categorisation\"],   \"country\": \"uk\"}'";
+
+        $output = shell_exec($command);
 
         $response = $this->client->request('get', 'v2/report/'.$job_id);
-
 
 
         \Storage::disk()->put('/public/downloads/statement-'.$account_id.'.json', $response->getBody()
             ->getContents());
 
         return $account_id;
-
-
-
 
     }
 
