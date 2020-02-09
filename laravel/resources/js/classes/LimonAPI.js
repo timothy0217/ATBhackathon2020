@@ -13,7 +13,21 @@ export default class LimonAPI {
             });
         });
 
-        return JSON.parse(localStorage.getItem('score_result'));
+        const scoreResult = JSON.parse(localStorage.getItem('score_result'));
+        const categories = scoreResult.categories;
+        const categoriesArray = Object.keys(categories).map(i => categories[i]);
+
+        categoriesArray.forEach(category => {
+            if(category.title === 'Vehicle purchase, maintenance') {
+                const newCarbon = (category.carbon / 12) / 10;
+                category.carbon = newCarbon;
+                category.value = (category.value / 12) / 10;
+                category.title = 'Vehicle purchase, maintenance (10 Years)';
+            }
+        });
+        scoreResult.categories = categoriesArray;
+
+        return scoreResult;
     }
 
     getAccountData() {
@@ -61,6 +75,7 @@ export default class LimonAPI {
 
     getBarChartLabels() {
         const categories = this.getFakeCarbonData().categories;
+        console.log('bar chart categories', categories);
         const categoriesArray = Object.keys(categories).map(i => categories[i]);
         const labels = [];
 
