@@ -44,6 +44,9 @@ export default class RegistrationPage extends Component {
         localStorage.setItem('province', this.state.province);
         localStorage.setItem('country', this.state.country);
 
+        const login = new Login();
+        login.sendRequest(this.state.email);
+
         // Redirect to next page
         this.props.history.push('/passionPage');
     }

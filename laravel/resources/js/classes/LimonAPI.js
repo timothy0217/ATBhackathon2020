@@ -38,7 +38,9 @@ export default class LimonAPI {
             localStorage.setItem('account_details', JSON.stringify(result.data.data));
         });
 
+        console.log('made it');
         const accountData = JSON.parse(localStorage.getItem('account_details'));
+        console.log('parsed json', accountData);
         return accountData.account_list[0];
     }
 
