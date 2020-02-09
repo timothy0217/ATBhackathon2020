@@ -15,7 +15,7 @@ export default class Passions extends Component {
     }
 
     updateFormState(event) {
-        const obj  = {};
+        const obj = {};
         obj[event.target.id] = event.target.value;
         this.setState(obj);
     }
@@ -35,35 +35,33 @@ export default class Passions extends Component {
 
     render() {
         return (
-            <Container>
-                <div className="form-container">
-                    <Typography variant="h4">
-                        Set Your Contributions
-                    </Typography>
-                    <br /><br />
+            <div className="form-container">
+                <Typography variant="h4">
+                    Set Your Contributions
+                </Typography>
+                <br/><br/>
 
-                    <form noValidate autoComplete="off">
-                        <TextField id="contribution_one" label="Contribution 1" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <TextField id="contribution_two" label="Contribution 2" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
-                        <TextField id="contribution_three" label="Contribution 3" variant="filled" fullWidth
-                                   onChange={this.updateFormState.bind(this)}/>
-                        <br />
+                <form noValidate autoComplete="off" className="form-inner">
+                    <TextField id="contribution_one" label="Contribution 1" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <TextField id="contribution_two" label="Contribution 2" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
+                    <TextField id="contribution_three" label="Contribution 3" variant="filled" fullWidth
+                               onChange={this.updateFormState.bind(this)}/>
+                    <br/>
 
-                        <center>
-                            <Button className="btn btn-primary submit"
-                                    disableElevation
-                                    onClick={() => this.handleFormSubmit()}
-                            >
-                                Submit
-                            </Button>
-                        </center>
-                    </form>
-                </div>
-            </Container>
+                    <center>
+                        <Button className="btn btn-primary submit"
+                                disableElevation
+                                onClick={() => this.handleFormSubmit()}
+                        >
+                            Submit
+                        </Button>
+                    </center>
+                </form>
+            </div>
         );
     }
 }
