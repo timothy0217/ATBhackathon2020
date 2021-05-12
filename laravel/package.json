@@ -28,7 +28,7 @@
     "dependencies": {
         "@material-ui/core": "^4.9.1",
         "@material-ui/icons": "^4.9.1",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "clsx": "^1.1.0",
         "infinite-react-carousel": "^1.2.9",
         "react-chartjs-2": "^2.9.0",
